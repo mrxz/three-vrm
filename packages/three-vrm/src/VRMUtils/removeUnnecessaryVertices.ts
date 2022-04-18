@@ -43,7 +43,7 @@ export function removeUnnecessaryVertices(root: THREE.Object3D): void {
     newGeometry.name = geometry.name;
 
     newGeometry.morphTargetsRelative = geometry.morphTargetsRelative;
-
+    //newGeometry.setDrawRange(geometry.drawRange.start, geometry.drawRange.count);
     geometry.groups.forEach((group) => {
       newGeometry.addGroup(group.start, group.count, group.materialIndex);
     });
