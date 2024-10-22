@@ -1,6 +1,7 @@
 {
   "plugins": ["@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
+  "root": true,
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -19,7 +20,7 @@
     "curly": ["error", "multi-line"], // if statements without curly are evil
     "no-console": ["error", { "allow": ["info", "warn", "error"] }], // do not leave console.log
     "require-atomic-updates": ["off"], // the rule is kinda buggy
-    "@typescript-eslint/no-unnecessary-type-assertion": ["error"], // we don't need unnecessary type assertions
+    "@typescript-eslint/no-unnecessary-type-assertion": "error", // we don't need unnecessary type assertions
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -63,7 +64,7 @@
       }
     ],
     "@typescript-eslint/no-unused-vars": ["warn", { "args": "none" }], // we sometimes have to define unused arguments
-    "@typescript-eslint/no-explicit-any": ["off"], // Three.js sometimes forces us to deal with anys
+    "@typescript-eslint/no-explicit-any": "off", // Three.js sometimes forces us to deal with anys
     "@typescript-eslint/no-non-null-assertion": ["off"] // Three.js sometimes forces us to deal with bangs
   }
 }
