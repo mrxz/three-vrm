@@ -2,14 +2,14 @@ import type * as V0VRM from '@pixiv/types-vrm-0.0';
 import type * as V1VRMSchema from '@pixiv/types-vrmc-vrm-1.0';
 import * as THREE from 'three';
 import { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { gltfExtractPrimitivesFromNode } from '../utils/gltfExtractPrimitivesFromNode';
-import { VRMExpression } from './VRMExpression';
-import { VRMExpressionManager } from './VRMExpressionManager';
-import { v0ExpressionMaterialColorMap } from './VRMExpressionMaterialColorType';
-import { VRMExpressionMaterialColorBind } from './VRMExpressionMaterialColorBind';
-import { VRMExpressionMorphTargetBind } from './VRMExpressionMorphTargetBind';
-import { VRMExpressionPresetName } from './VRMExpressionPresetName';
-import { VRMExpressionTextureTransformBind } from './VRMExpressionTextureTransformBind';
+import { gltfExtractPrimitivesFromNode } from '../utils/gltfExtractPrimitivesFromNode.js';
+import { VRMExpression } from './VRMExpression.js';
+import { VRMExpressionManager } from './VRMExpressionManager.js';
+import { v0ExpressionMaterialColorMap } from './VRMExpressionMaterialColorType.js';
+import { VRMExpressionMaterialColorBind } from './VRMExpressionMaterialColorBind.js';
+import { VRMExpressionMorphTargetBind } from './VRMExpressionMorphTargetBind.js';
+import { VRMExpressionPresetName } from './VRMExpressionPresetName.js';
+import { VRMExpressionTextureTransformBind } from './VRMExpressionTextureTransformBind.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
 
 /**

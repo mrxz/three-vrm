@@ -1,4 +1,4 @@
-import type { SpringBoneJoint } from './SpringBoneJoint';
+import type { SpringBoneJoint } from './SpringBoneJoint.js';
 
 /**
  * A bone group of VRMCSpringBone.

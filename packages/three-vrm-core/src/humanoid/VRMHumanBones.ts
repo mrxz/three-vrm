@@ -1,6 +1,6 @@
-import type { VRMHumanBone } from './VRMHumanBone';
-import type { VRMHumanBoneName } from './VRMHumanBoneName';
-import type { VRMRequiredHumanBoneName } from './VRMRequiredHumanBoneName';
+import type { VRMHumanBone } from './VRMHumanBone.js';
+import type { VRMHumanBoneName } from './VRMHumanBoneName.js';
+import type { VRMRequiredHumanBoneName } from './VRMRequiredHumanBoneName.js';
 
 /**
  * A map from {@link VRMHumanBoneName} to {@link VRMHumanBone}.

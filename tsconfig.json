@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
+    "target": "ESNext",
+    "module": "NodeNext",
     "lib": ["es2018", "dom"],
-    "moduleResolution": "Bundler",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "strict": true,
     "baseUrl": ".",

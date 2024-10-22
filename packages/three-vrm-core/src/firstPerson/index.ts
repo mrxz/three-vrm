@@ -1,4 +1,4 @@
-export { VRMFirstPerson } from './VRMFirstPerson';
-export { VRMFirstPersonLoaderPlugin } from './VRMFirstPersonLoaderPlugin';
-export type { VRMFirstPersonMeshAnnotation } from './VRMFirstPersonMeshAnnotation';
-export { VRMFirstPersonMeshAnnotationType } from './VRMFirstPersonMeshAnnotationType';
+export { VRMFirstPerson } from './VRMFirstPerson.js';
+export { VRMFirstPersonLoaderPlugin } from './VRMFirstPersonLoaderPlugin.js';
+export type { VRMFirstPersonMeshAnnotation } from './VRMFirstPersonMeshAnnotation.js';
+export { VRMFirstPersonMeshAnnotationType } from './VRMFirstPersonMeshAnnotationType.js';

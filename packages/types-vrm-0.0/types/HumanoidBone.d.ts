@@ -1,5 +1,5 @@
-import type { HumanoidBoneName } from './HumanoidBoneName';
-import type { Vector3 } from './Vector3';
+import type { HumanoidBoneName } from './HumanoidBoneName.js';
+import type { Vector3 } from './Vector3.js';
 
 export interface HumanoidBone {
   /**

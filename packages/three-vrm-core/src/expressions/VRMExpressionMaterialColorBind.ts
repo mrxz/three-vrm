@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import type { VRMExpressionBind } from './VRMExpressionBind';
-import type { VRMExpressionMaterialColorType } from './VRMExpressionMaterialColorType';
+import type { VRMExpressionBind } from './VRMExpressionBind.js';
+import type { VRMExpressionMaterialColorType } from './VRMExpressionMaterialColorType.js';
 
 const _color = new THREE.Color();
 

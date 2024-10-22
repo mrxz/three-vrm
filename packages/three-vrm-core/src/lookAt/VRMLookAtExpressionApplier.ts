@@ -1,7 +1,7 @@
-import { VRMExpressionManager } from '../expressions';
+import { VRMExpressionManager } from '../expressions/index.js';
 import * as THREE from 'three';
-import type { VRMLookAtApplier } from './VRMLookAtApplier';
-import { VRMLookAtRangeMap } from './VRMLookAtRangeMap';
+import type { VRMLookAtApplier } from './VRMLookAtApplier.js';
+import { VRMLookAtRangeMap } from './VRMLookAtRangeMap.js';
 
 /**
  * A class that applies eye gaze directions to a VRM.

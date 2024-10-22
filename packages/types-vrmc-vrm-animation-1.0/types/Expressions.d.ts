@@ -1,4 +1,4 @@
-import type { Expression } from './Expression';
+import type { Expression } from './Expression.js';
 import type { ExpressionPresetName } from '@pixiv/types-vrmc-vrm-1.0';
 
 /**

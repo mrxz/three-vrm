@@ -1,9 +1,9 @@
 import type * as THREE from 'three';
-import type { VRMSpringBoneJoint } from './VRMSpringBoneJoint';
-import { traverseAncestorsFromRoot } from './utils/traverseAncestorsFromRoot';
-import type { VRMSpringBoneCollider } from './VRMSpringBoneCollider';
-import type { VRMSpringBoneColliderGroup } from './VRMSpringBoneColliderGroup';
-import { traverseChildrenUntilConditionMet } from './utils/traverseChildrenUntilConditionMet';
+import type { VRMSpringBoneJoint } from './VRMSpringBoneJoint.js';
+import { traverseAncestorsFromRoot } from './utils/traverseAncestorsFromRoot.js';
+import type { VRMSpringBoneCollider } from './VRMSpringBoneCollider.js';
+import type { VRMSpringBoneColliderGroup } from './VRMSpringBoneColliderGroup.js';
+import { traverseChildrenUntilConditionMet } from './utils/traverseChildrenUntilConditionMet.js';
 
 export class VRMSpringBoneManager {
   private _joints = new Set<VRMSpringBoneJoint>();

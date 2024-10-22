@@ -1,1 +1,1 @@
-export { VRMMaterialsV0CompatPlugin } from './VRMMaterialsV0CompatPlugin';
+export { VRMMaterialsV0CompatPlugin } from './VRMMaterialsV0CompatPlugin.js';

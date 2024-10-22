@@ -1,5 +1,5 @@
-import type { VRMHumanBoneName } from './VRMHumanBoneName';
-import type { VRMPoseTransform } from './VRMPoseTransform';
+import type { VRMHumanBoneName } from './VRMHumanBoneName.js';
+import type { VRMPoseTransform } from './VRMPoseTransform.js';
 
 /**
  * Represents a pose that VRM can do.

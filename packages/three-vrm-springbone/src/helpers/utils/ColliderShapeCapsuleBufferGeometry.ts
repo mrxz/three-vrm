@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { VRMSpringBoneColliderShapeCapsule } from '../../VRMSpringBoneColliderShapeCapsule';
-import { ColliderShapeBufferGeometry } from './ColliderShapeBufferGeometry';
+import { VRMSpringBoneColliderShapeCapsule } from '../../VRMSpringBoneColliderShapeCapsule.js';
+import { ColliderShapeBufferGeometry } from './ColliderShapeBufferGeometry.js';
 
 const _v3A = new THREE.Vector3();
 

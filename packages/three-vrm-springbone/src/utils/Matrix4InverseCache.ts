@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { mat4InvertCompat } from './mat4InvertCompat';
+import { mat4InvertCompat } from './mat4InvertCompat.js';
 
 export class Matrix4InverseCache {
   /**

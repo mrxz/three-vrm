@@ -1,6 +1,6 @@
-import { AimConstraint } from './AimConstraint';
-import { RollConstraint } from './RollConstraint';
-import type { RotationConstraint } from './RotationConstraint';
+import { AimConstraint } from './AimConstraint.js';
+import { RollConstraint } from './RollConstraint.js';
+import type { RotationConstraint } from './RotationConstraint.js';
 
 /**
  * An object contains one of constraints.

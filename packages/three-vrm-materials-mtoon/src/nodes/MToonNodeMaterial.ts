@@ -1,7 +1,7 @@
 import * as THREE from 'three/webgpu';
 
-import type { MToonMaterial } from '../MToonMaterial';
-import { MToonLightingModel } from './MToonLightingModel';
+import type { MToonMaterial } from '../MToonMaterial.js';
+import { MToonLightingModel } from './MToonLightingModel.js';
 import {
   rimLightingMix,
   matcap,
@@ -10,7 +10,7 @@ import {
   shadingToony,
   rimMultiply,
   parametricRim,
-} from './immutableNodes';
+} from './immutableNodes.js';
 import {
   refColor,
   refEmissive,
@@ -35,11 +35,11 @@ import {
   refShadeMultiplyTextureScale,
   refShadingShiftFactor,
   refShadingToonyFactor,
-} from './materialReferences';
-import { MToonAnimatedUVNode } from './MToonAnimatedUVNode';
-import { MToonMaterialOutlineWidthMode } from '../MToonMaterialOutlineWidthMode';
-import { MToonNodeMaterialParameters } from './MToonNodeMaterialParameters';
-import { mtoonParametricRim } from './mtoonParametricRim';
+} from './materialReferences.js';
+import { MToonAnimatedUVNode } from './MToonAnimatedUVNode.js';
+import { MToonMaterialOutlineWidthMode } from '../MToonMaterialOutlineWidthMode.js';
+import { MToonNodeMaterialParameters } from './MToonNodeMaterialParameters.js';
+import { mtoonParametricRim } from './mtoonParametricRim.js';
 
 /**
  * MToon is a material specification that has various features.

@@ -1,4 +1,4 @@
-import type { HumanoidBone } from './HumanoidBone';
+import type { HumanoidBone } from './HumanoidBone.js';
 
 export interface Humanoid {
   humanBones?: HumanoidBone[];

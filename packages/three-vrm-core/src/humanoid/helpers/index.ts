@@ -1,1 +1,1 @@
-export { VRMHumanoidHelper } from './VRMHumanoidHelper';
+export { VRMHumanoidHelper } from './VRMHumanoidHelper.js';

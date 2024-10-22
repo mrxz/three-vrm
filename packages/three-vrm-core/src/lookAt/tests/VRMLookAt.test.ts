@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { VRMHumanBoneName, VRMHumanBoneParentMap, VRMHumanBones, VRMHumanoid } from '../../humanoid';
-import { VRMLookAt } from '../VRMLookAt';
-import { VRMLookAtBoneApplier } from '../VRMLookAtBoneApplier';
-import { VRMLookAtRangeMap } from '../VRMLookAtRangeMap';
-import { toBeCloseToQuaternion } from '../../tests/matchers/toBeCloseToQuaternion';
-import { toBeCloseToVector3 } from '../../tests/matchers/toBeCloseToVector3';
+import { VRMHumanBoneName, VRMHumanBoneParentMap, VRMHumanBones, VRMHumanoid } from '../../humanoid/index.js';
+import { VRMLookAt } from '../VRMLookAt.js';
+import { VRMLookAtBoneApplier } from '../VRMLookAtBoneApplier.js';
+import { VRMLookAtRangeMap } from '../VRMLookAtRangeMap.js';
+import { toBeCloseToQuaternion } from '../../tests/matchers/toBeCloseToQuaternion.js';
+import { toBeCloseToVector3 } from '../../tests/matchers/toBeCloseToVector3.js';
 
 // This is not a proper test!
 // We are currently looking for a solution for an issue under the specific case

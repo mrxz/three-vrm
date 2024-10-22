@@ -1,6 +1,6 @@
-import type { SpringBoneExtendedColliderShapeCapsule } from './SpringBoneExtendedColliderShapeCapsule';
-import type { SpringBoneExtendedColliderShapePlane } from './SpringBoneExtendedColliderShapePlane';
-import type { SpringBoneExtendedColliderShapeSphere } from './SpringBoneExtendedColliderShapeSphere';
+import type { SpringBoneExtendedColliderShapeCapsule } from './SpringBoneExtendedColliderShapeCapsule.js';
+import type { SpringBoneExtendedColliderShapePlane } from './SpringBoneExtendedColliderShapePlane.js';
+import type { SpringBoneExtendedColliderShapeSphere } from './SpringBoneExtendedColliderShapeSphere.js';
 
 /**
  * The shape of the collider. One of sphere, capsule, or plane is defined.

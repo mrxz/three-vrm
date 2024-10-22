@@ -1,4 +1,4 @@
-import type { LookAtRangeMap } from './LookAtRangeMap';
+import type { LookAtRangeMap } from './LookAtRangeMap.js';
 
 /**
  * Eye gaze control

@@ -1,4 +1,4 @@
-import { VRM } from '../VRM';
+import { VRM } from '../VRM.js';
 
 /**
  * If the given VRM is VRM0.0, rotate the `vrm.scene` by 180 degrees around the Y axis.

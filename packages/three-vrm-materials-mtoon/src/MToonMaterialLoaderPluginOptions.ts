@@ -1,6 +1,6 @@
 import type * as THREE from 'three';
-import type { MToonMaterialDebugMode } from './MToonMaterialDebugMode';
-import type { MToonNodeMaterial } from './nodes/MToonNodeMaterial';
+import type { MToonMaterialDebugMode } from './MToonMaterialDebugMode.js';
+import type { MToonNodeMaterial } from './nodes/MToonNodeMaterial.js';
 
 export interface MToonMaterialLoaderPluginOptions {
   /**

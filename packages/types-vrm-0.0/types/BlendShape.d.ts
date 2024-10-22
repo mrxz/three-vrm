@@ -1,4 +1,4 @@
-import type { BlendShapeGroup } from './BlendShapeGroup';
+import type { BlendShapeGroup } from './BlendShapeGroup.js';
 
 /**
  * BlendShapeAvatar of UniVRM

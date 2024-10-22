@@ -1,11 +1,11 @@
 import type * as V0VRM from '@pixiv/types-vrm-0.0';
 import type * as V1VRMSchema from '@pixiv/types-vrmc-vrm-1.0';
 import type { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import type { VRMHumanoid } from '../humanoid/VRMHumanoid';
-import { gltfExtractPrimitivesFromNodes } from '../utils/gltfExtractPrimitivesFromNode';
-import { VRMFirstPerson } from './VRMFirstPerson';
-import type { VRMFirstPersonMeshAnnotation } from './VRMFirstPersonMeshAnnotation';
-import type { VRMFirstPersonMeshAnnotationType } from './VRMFirstPersonMeshAnnotationType';
+import type { VRMHumanoid } from '../humanoid/VRMHumanoid.js';
+import { gltfExtractPrimitivesFromNodes } from '../utils/gltfExtractPrimitivesFromNode.js';
+import { VRMFirstPerson } from './VRMFirstPerson.js';
+import type { VRMFirstPersonMeshAnnotation } from './VRMFirstPersonMeshAnnotation.js';
+import type { VRMFirstPersonMeshAnnotationType } from './VRMFirstPersonMeshAnnotationType.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
 
 /**

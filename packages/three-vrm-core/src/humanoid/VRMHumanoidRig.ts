@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { VRMHumanBoneName, VRMHumanBones } from '.';
-import { VRMHumanBoneList } from './VRMHumanBoneList';
-import { VRMHumanBoneParentMap } from './VRMHumanBoneParentMap';
-import { VRMRig } from './VRMRig';
+import { VRMHumanBoneName, VRMHumanBones } from './index.js';
+import { VRMHumanBoneList } from './VRMHumanBoneList.js';
+import { VRMHumanBoneParentMap } from './VRMHumanBoneParentMap.js';
+import { VRMRig } from './VRMRig.js';
 
 const _v3A = new THREE.Vector3();
 const _quatA = new THREE.Quaternion();

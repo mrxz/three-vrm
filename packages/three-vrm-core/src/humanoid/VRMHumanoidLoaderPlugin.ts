@@ -2,12 +2,12 @@ import type * as THREE from 'three';
 import type * as V0VRM from '@pixiv/types-vrm-0.0';
 import type * as V1VRMSchema from '@pixiv/types-vrmc-vrm-1.0';
 import type { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { VRMHumanoid } from './VRMHumanoid';
-import type { VRMHumanBones } from './VRMHumanBones';
-import { VRMRequiredHumanBoneName } from './VRMRequiredHumanBoneName';
+import { VRMHumanoid } from './VRMHumanoid.js';
+import type { VRMHumanBones } from './VRMHumanBones.js';
+import { VRMRequiredHumanBoneName } from './VRMRequiredHumanBoneName.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
-import { VRMHumanoidHelper } from './helpers/VRMHumanoidHelper';
-import { VRMHumanoidLoaderPluginOptions } from './VRMHumanoidLoaderPluginOptions';
+import { VRMHumanoidHelper } from './helpers/VRMHumanoidHelper.js';
+import { VRMHumanoidLoaderPluginOptions } from './VRMHumanoidLoaderPluginOptions.js';
 
 /**
  * Possible spec versions it recognizes.

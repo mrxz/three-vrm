@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { VRMHumanBoneName } from './VRMHumanBoneName';
+import { VRMHumanBoneName } from './VRMHumanBoneName.js';
 
 /**
  * The list of {@link VRMHumanBoneName}. Dependency aware.

@@ -1,6 +1,6 @@
-import type { FirstPersonDegreeMap } from './FirstPersonDegreeMap';
-import type { FirstPersonMeshAnnotation } from './FirstPersonMeshAnnotation';
-import type { Vector3 } from './Vector3';
+import type { FirstPersonDegreeMap } from './FirstPersonDegreeMap.js';
+import type { FirstPersonMeshAnnotation } from './FirstPersonMeshAnnotation.js';
+import type { Vector3 } from './Vector3.js';
 
 export interface FirstPerson {
   /**

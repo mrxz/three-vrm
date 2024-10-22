@@ -1,4 +1,4 @@
-import { sanitizeAngle } from '../sanitizeAngle';
+import { sanitizeAngle } from '../sanitizeAngle.js';
 
 describe('sanitizeAngle', () => {
   it('does not do anything to an angle within -PI and PI (3 / 4 * PI)', () => {

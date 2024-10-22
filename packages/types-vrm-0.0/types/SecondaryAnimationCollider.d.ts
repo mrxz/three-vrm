@@ -1,4 +1,4 @@
-import type { Vector3 } from './Vector3';
+import type { Vector3 } from './Vector3.js';
 
 export interface SecondaryAnimationCollider {
   /**

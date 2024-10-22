@@ -1,8 +1,8 @@
 /* eslint-env jest */
 
 import * as THREE from 'three';
-import { VRMNodeConstraintManager } from '../VRMNodeConstraintManager';
-import { VRMMockedConstraint } from './VRMMockedConstraint';
+import { VRMNodeConstraintManager } from '../VRMNodeConstraintManager.js';
+import { VRMMockedConstraint } from './VRMMockedConstraint.js';
 
 describe('VRMNodeConstraintManager', () => {
   let manager: VRMNodeConstraintManager;

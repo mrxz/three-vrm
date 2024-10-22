@@ -1,6 +1,6 @@
-import type { SpringBoneCollider } from './SpringBoneCollider';
-import type { SpringBoneColliderGroup } from './SpringBoneColliderGroup';
-import type { SpringBoneSpring } from './SpringBoneSpring';
+import type { SpringBoneCollider } from './SpringBoneCollider.js';
+import type { SpringBoneColliderGroup } from './SpringBoneColliderGroup.js';
+import type { SpringBoneSpring } from './SpringBoneSpring.js';
 
 /**
  * SpringBone makes objects such as costumes and hair swaying

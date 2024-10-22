@@ -4,7 +4,7 @@ import {
   refUVAnimationRotationPhase,
   refUVAnimationScrollXOffset,
   refUVAnimationScrollYOffset,
-} from './materialReferences';
+} from './materialReferences.js';
 
 export class MToonAnimatedUVNode extends THREE.TempNode {
   public readonly hasMaskTexture: boolean;

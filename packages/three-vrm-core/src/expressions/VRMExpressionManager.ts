@@ -1,6 +1,6 @@
-import { VRMExpressionPresetName } from './VRMExpressionPresetName';
-import { saturate } from '../utils/saturate';
-import type { VRMExpression } from './VRMExpression';
+import { VRMExpressionPresetName } from './VRMExpressionPresetName.js';
+import { saturate } from '../utils/saturate.js';
+import type { VRMExpression } from './VRMExpression.js';
 
 export class VRMExpressionManager {
   /**

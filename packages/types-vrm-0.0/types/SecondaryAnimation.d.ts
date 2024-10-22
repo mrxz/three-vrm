@@ -1,5 +1,5 @@
-import type { SecondaryAnimationColliderGroup } from './SecondaryAnimationColliderGroup';
-import type { SecondaryAnimationSpring } from './SecondaryAnimationSpring';
+import type { SecondaryAnimationColliderGroup } from './SecondaryAnimationColliderGroup.js';
+import type { SecondaryAnimationSpring } from './SecondaryAnimationSpring.js';
 
 /**
  * The setting of automatic animation of string-like objects such as tails and hairs.

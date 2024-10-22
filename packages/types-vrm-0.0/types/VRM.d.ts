@@ -1,9 +1,9 @@
-import type { BlendShape } from './BlendShape';
-import type { FirstPerson } from './FirstPerson';
-import type { Humanoid } from './Humanoid';
-import type { Material } from './Material';
-import type { Meta } from './Meta';
-import type { SecondaryAnimation } from './SecondaryAnimation';
+import type { BlendShape } from './BlendShape.js';
+import type { FirstPerson } from './FirstPerson.js';
+import type { Humanoid } from './Humanoid.js';
+import type { Material } from './Material.js';
+import type { Meta } from './Meta.js';
+import type { SecondaryAnimation } from './SecondaryAnimation.js';
 
 /**
  * VRM extension is for 3d humanoid avatars (and models) in VR applications.

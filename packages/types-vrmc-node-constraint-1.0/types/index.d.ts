@@ -1,5 +1,5 @@
-export type { AimConstraint } from './AimConstraint';
-export type { Constraint } from './Constraint';
-export type { RollConstraint } from './RollConstraint';
-export type { RotationConstraint } from './RotationConstraint';
-export type { VRMCNodeConstraint } from './VRMCNodeConstraint';
+export type { AimConstraint } from './AimConstraint.js';
+export type { Constraint } from './Constraint.js';
+export type { RollConstraint } from './RollConstraint.js';
+export type { RotationConstraint } from './RotationConstraint.js';
+export type { VRMCNodeConstraint } from './VRMCNodeConstraint.js';

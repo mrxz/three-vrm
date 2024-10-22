@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { mat4InvertCompat } from './utils/mat4InvertCompat';
-import { Matrix4InverseCache } from './utils/Matrix4InverseCache';
-import type { VRMSpringBoneColliderGroup } from './VRMSpringBoneColliderGroup';
-import type { VRMSpringBoneJointSettings } from './VRMSpringBoneJointSettings';
+import { mat4InvertCompat } from './utils/mat4InvertCompat.js';
+import { Matrix4InverseCache } from './utils/Matrix4InverseCache.js';
+import type { VRMSpringBoneColliderGroup } from './VRMSpringBoneColliderGroup.js';
+import type { VRMSpringBoneJointSettings } from './VRMSpringBoneJointSettings.js';
 
 // based on
 // http://rocketjump.skr.jp/unity3d/109/

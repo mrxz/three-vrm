@@ -1,5 +1,5 @@
-import type { SpringBoneColliderSphere } from './SpringBoneColliderSphere';
-import type { SpringBoneColliderCapsule } from './SpringBoneColliderCapsule';
+import type { SpringBoneColliderSphere } from './SpringBoneColliderSphere.js';
+import type { SpringBoneColliderCapsule } from './SpringBoneColliderCapsule.js';
 
 /**
  * Shape of collider. Have one of sphere and capsule

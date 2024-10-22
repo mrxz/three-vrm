@@ -1,5 +1,5 @@
 import type * as THREE from 'three';
-import type { VRMExpressionBind } from './VRMExpressionBind';
+import type { VRMExpressionBind } from './VRMExpressionBind.js';
 
 /**
  * A bind of {@link VRMExpression} influences to morph targets.

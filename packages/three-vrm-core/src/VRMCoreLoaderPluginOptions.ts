@@ -1,9 +1,9 @@
 import type * as THREE from 'three';
-import { VRMExpressionLoaderPlugin } from './expressions/VRMExpressionLoaderPlugin';
-import { VRMFirstPersonLoaderPlugin } from './firstPerson/VRMFirstPersonLoaderPlugin';
-import { VRMHumanoidLoaderPlugin } from './humanoid/VRMHumanoidLoaderPlugin';
-import { VRMLookAtLoaderPlugin } from './lookAt/VRMLookAtLoaderPlugin';
-import { VRMMetaLoaderPlugin } from './meta/VRMMetaLoaderPlugin';
+import { VRMExpressionLoaderPlugin } from './expressions/VRMExpressionLoaderPlugin.js';
+import { VRMFirstPersonLoaderPlugin } from './firstPerson/VRMFirstPersonLoaderPlugin.js';
+import { VRMHumanoidLoaderPlugin } from './humanoid/VRMHumanoidLoaderPlugin.js';
+import { VRMLookAtLoaderPlugin } from './lookAt/VRMLookAtLoaderPlugin.js';
+import { VRMMetaLoaderPlugin } from './meta/VRMMetaLoaderPlugin.js';
 
 export interface VRMCoreLoaderPluginOptions {
   expressionPlugin?: VRMExpressionLoaderPlugin;

@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import { quatInvertCompat } from '../utils/quatInvertCompat';
-import type { VRMHumanBone } from './VRMHumanBone';
-import type { VRMHumanBones } from './VRMHumanBones';
-import type { VRMHumanBoneName } from './VRMHumanBoneName';
-import type { VRMPose } from './VRMPose';
+import { quatInvertCompat } from '../utils/quatInvertCompat.js';
+import type { VRMHumanBone } from './VRMHumanBone.js';
+import type { VRMHumanBones } from './VRMHumanBones.js';
+import type { VRMHumanBoneName } from './VRMHumanBoneName.js';
+import type { VRMPose } from './VRMPose.js';
 
 const _v3A = new THREE.Vector3();
 const _quatA = new THREE.Quaternion();

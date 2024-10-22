@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { VRMExpressionManager } from './expressions/VRMExpressionManager';
-import { VRMFirstPerson } from './firstPerson/VRMFirstPerson';
-import { VRMHumanoid } from './humanoid/VRMHumanoid';
-import { VRMLookAt } from './lookAt/VRMLookAt';
-import { VRMMeta } from './meta/VRMMeta';
-import { VRMCoreParameters } from './VRMCoreParameters';
+import { VRMExpressionManager } from './expressions/VRMExpressionManager.js';
+import { VRMFirstPerson } from './firstPerson/VRMFirstPerson.js';
+import { VRMHumanoid } from './humanoid/VRMHumanoid.js';
+import { VRMLookAt } from './lookAt/VRMLookAt.js';
+import { VRMMeta } from './meta/VRMMeta.js';
+import { VRMCoreParameters } from './VRMCoreParameters.js';
 
 /**
  * A class that represents a single VRM model.

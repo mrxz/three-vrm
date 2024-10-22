@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { VRMHumanoid } from '../humanoid';
-import { getWorldQuaternionLite } from '../utils/getWorldQuaternionLite';
-import { quatInvertCompat } from '../utils/quatInvertCompat';
-import { calcAzimuthAltitude } from './utils/calcAzimuthAltitude';
-import type { VRMLookAtApplier } from './VRMLookAtApplier';
-import { sanitizeAngle } from './utils/sanitizeAngle';
+import { VRMHumanoid } from '../humanoid/index.js';
+import { getWorldQuaternionLite } from '../utils/getWorldQuaternionLite.js';
+import { quatInvertCompat } from '../utils/quatInvertCompat.js';
+import { calcAzimuthAltitude } from './utils/calcAzimuthAltitude.js';
+import type { VRMLookAtApplier } from './VRMLookAtApplier.js';
+import { sanitizeAngle } from './utils/sanitizeAngle.js';
 
 const VEC3_POSITIVE_Z = new THREE.Vector3(0.0, 0.0, 1.0);
 

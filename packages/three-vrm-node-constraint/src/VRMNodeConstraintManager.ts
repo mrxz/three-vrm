@@ -1,6 +1,6 @@
 import type * as THREE from 'three';
-import type { VRMNodeConstraint } from './VRMNodeConstraint';
-import { traverseAncestorsFromRoot } from './utils/traverseAncestorsFromRoot';
+import type { VRMNodeConstraint } from './VRMNodeConstraint.js';
+import { traverseAncestorsFromRoot } from './utils/traverseAncestorsFromRoot.js';
 
 export class VRMNodeConstraintManager {
   private _constraints = new Set<VRMNodeConstraint>();

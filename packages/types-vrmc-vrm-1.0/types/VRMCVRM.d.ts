@@ -1,8 +1,8 @@
-import type { Expressions } from './Expressions';
-import type { FirstPerson } from './FirstPerson';
-import type { Humanoid } from './Humanoid';
-import type { LookAt } from './LookAt';
-import type { Meta } from './Meta';
+import type { Expressions } from './Expressions.js';
+import type { FirstPerson } from './FirstPerson.js';
+import type { Humanoid } from './Humanoid.js';
+import type { LookAt } from './LookAt.js';
+import type { Meta } from './Meta.js';
 
 export interface VRMCVRM {
   /**

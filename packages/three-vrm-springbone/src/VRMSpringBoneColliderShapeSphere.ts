@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape';
+import { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape.js';
 
 export class VRMSpringBoneColliderShapeSphere extends VRMSpringBoneColliderShape {
   public get type(): 'sphere' {

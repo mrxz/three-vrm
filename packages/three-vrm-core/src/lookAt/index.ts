@@ -1,9 +1,9 @@
-export * from './helpers';
+export * from './helpers/index.js';
 
-export { VRMLookAt } from './VRMLookAt';
-export type { VRMLookAtApplier } from './VRMLookAtApplier';
-export { VRMLookAtBoneApplier } from './VRMLookAtBoneApplier';
-export { VRMLookAtExpressionApplier } from './VRMLookAtExpressionApplier';
-export { VRMLookAtLoaderPlugin } from './VRMLookAtLoaderPlugin';
-export { VRMLookAtRangeMap } from './VRMLookAtRangeMap';
-export { VRMLookAtTypeName } from './VRMLookAtTypeName';
+export { VRMLookAt } from './VRMLookAt.js';
+export type { VRMLookAtApplier } from './VRMLookAtApplier.js';
+export { VRMLookAtBoneApplier } from './VRMLookAtBoneApplier.js';
+export { VRMLookAtExpressionApplier } from './VRMLookAtExpressionApplier.js';
+export { VRMLookAtLoaderPlugin } from './VRMLookAtLoaderPlugin.js';
+export { VRMLookAtRangeMap } from './VRMLookAtRangeMap.js';
+export { VRMLookAtTypeName } from './VRMLookAtTypeName.js';

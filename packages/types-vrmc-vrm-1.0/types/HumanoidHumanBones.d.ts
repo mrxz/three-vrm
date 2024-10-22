@@ -1,5 +1,5 @@
-import type { HumanoidHumanBone } from './HumanoidHumanBone';
-import type { HumanoidHumanBoneName } from './HumanoidHumanBoneName';
+import type { HumanoidHumanBone } from './HumanoidHumanBone.js';
+import type { HumanoidHumanBoneName } from './HumanoidHumanBoneName.js';
 
 /**
  * Represents a set of humanBones of a humanoid.

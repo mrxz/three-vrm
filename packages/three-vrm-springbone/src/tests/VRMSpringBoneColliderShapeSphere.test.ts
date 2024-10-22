@@ -1,9 +1,9 @@
 /* eslint-env jest */
 
 import * as THREE from 'three';
-import { VRMSpringBoneColliderShapeSphere } from '../VRMSpringBoneColliderShapeSphere';
-import { toBeCloseToArray } from './matchers/toBeCloseToArray';
-import { toBeCloseToVector3 } from './matchers/toBeCloseToVector3';
+import { VRMSpringBoneColliderShapeSphere } from '../VRMSpringBoneColliderShapeSphere.js';
+import { toBeCloseToArray } from './matchers/toBeCloseToArray.js';
+import { toBeCloseToVector3 } from './matchers/toBeCloseToVector3.js';
 
 beforeEach(() => {
   expect.extend({ toBeCloseToArray, toBeCloseToVector3 });

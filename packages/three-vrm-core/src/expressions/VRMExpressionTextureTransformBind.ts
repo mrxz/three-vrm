@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { VRMExpressionBind } from './VRMExpressionBind';
+import type { VRMExpressionBind } from './VRMExpressionBind.js';
 
 const _v2 = new THREE.Vector2();
 

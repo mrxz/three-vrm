@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape';
+import { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape.js';
 
 const _v3A = new THREE.Vector3();
 const _mat3A = new THREE.Matrix3();

@@ -1,4 +1,4 @@
-import type { Constraint } from './Constraint';
+import type { Constraint } from './Constraint.js';
 
 /**
  * glTF extension that defines a node constraint.

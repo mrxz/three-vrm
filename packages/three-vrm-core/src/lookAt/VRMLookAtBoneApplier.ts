@@ -1,9 +1,9 @@
-import { VRMHumanoid } from '../humanoid';
+import { VRMHumanoid } from '../humanoid/index.js';
 import * as THREE from 'three';
-import type { VRMLookAtApplier } from './VRMLookAtApplier';
-import { VRMLookAtRangeMap } from './VRMLookAtRangeMap';
-import { calcAzimuthAltitude } from './utils/calcAzimuthAltitude';
-import { getWorldQuaternionLite } from '../utils/getWorldQuaternionLite';
+import type { VRMLookAtApplier } from './VRMLookAtApplier.js';
+import { VRMLookAtRangeMap } from './VRMLookAtRangeMap.js';
+import { calcAzimuthAltitude } from './utils/calcAzimuthAltitude.js';
+import { getWorldQuaternionLite } from '../utils/getWorldQuaternionLite.js';
 
 const VEC3_POSITIVE_Z = new THREE.Vector3(0.0, 0.0, 1.0);
 

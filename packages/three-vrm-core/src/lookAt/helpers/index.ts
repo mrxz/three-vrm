@@ -1,1 +1,1 @@
-export { VRMLookAtHelper } from './VRMLookAtHelper';
+export { VRMLookAtHelper } from './VRMLookAtHelper.js';

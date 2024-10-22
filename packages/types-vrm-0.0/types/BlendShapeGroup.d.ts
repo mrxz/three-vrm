@@ -1,6 +1,6 @@
-import type { BlendShapeBind } from './BlendShapeBind';
-import type { BlendShapeMaterialbind } from './BlendShapeMaterialBind';
-import type { BlendShapePresetName } from './BlendShapePresetName';
+import type { BlendShapeBind } from './BlendShapeBind.js';
+import type { BlendShapeMaterialbind } from './BlendShapeMaterialBind.js';
+import type { BlendShapePresetName } from './BlendShapePresetName.js';
 
 export interface BlendShapeGroup {
   /**

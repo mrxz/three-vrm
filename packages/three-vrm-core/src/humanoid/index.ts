@@ -1,13 +1,13 @@
-export * from './helpers';
+export * from './helpers/index.js';
 
-export { VRMHumanBone } from './VRMHumanBone';
-export { VRMHumanBoneList } from './VRMHumanBoneList';
-export { VRMHumanBoneName } from './VRMHumanBoneName';
-export { VRMHumanBoneParentMap } from './VRMHumanBoneParentMap';
-export type { VRMHumanBones } from './VRMHumanBones';
-export { VRMHumanoid } from './VRMHumanoid';
-export { VRMHumanoidLoaderPlugin } from './VRMHumanoidLoaderPlugin';
-export { VRMHumanoidLoaderPluginOptions } from './VRMHumanoidLoaderPluginOptions';
-export type { VRMPose } from './VRMPose';
-export type { VRMPoseTransform } from './VRMPoseTransform';
-export { VRMRequiredHumanBoneName } from './VRMRequiredHumanBoneName';
+export { VRMHumanBone } from './VRMHumanBone.js';
+export { VRMHumanBoneList } from './VRMHumanBoneList.js';
+export { VRMHumanBoneName } from './VRMHumanBoneName.js';
+export { VRMHumanBoneParentMap } from './VRMHumanBoneParentMap.js';
+export type { VRMHumanBones } from './VRMHumanBones.js';
+export { VRMHumanoid } from './VRMHumanoid.js';
+export { VRMHumanoidLoaderPlugin } from './VRMHumanoidLoaderPlugin.js';
+export { VRMHumanoidLoaderPluginOptions } from './VRMHumanoidLoaderPluginOptions.js';
+export type { VRMPose } from './VRMPose.js';
+export type { VRMPoseTransform } from './VRMPoseTransform.js';
+export { VRMRequiredHumanBoneName } from './VRMRequiredHumanBoneName.js';

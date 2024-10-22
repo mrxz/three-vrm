@@ -1,12 +1,12 @@
 import type { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import type { VRM0Meta } from './VRM0Meta';
-import type { VRM1Meta } from './VRM1Meta';
-import type { VRMMeta } from './VRMMeta';
-import type { VRMMetaLoaderPluginOptions } from './VRMMetaLoaderPluginOptions';
+import type { VRM0Meta } from './VRM0Meta.js';
+import type { VRM1Meta } from './VRM1Meta.js';
+import type { VRMMeta } from './VRMMeta.js';
+import type { VRMMetaLoaderPluginOptions } from './VRMMetaLoaderPluginOptions.js';
 import type * as V0VRM from '@pixiv/types-vrm-0.0';
 import type * as V1VRMSchema from '@pixiv/types-vrmc-vrm-1.0';
 import * as THREE from 'three';
-import { resolveURL } from '../utils/resolveURL';
+import { resolveURL } from '../utils/resolveURL.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
 
 /**

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import { VRMExpressionBind } from './VRMExpressionBind';
-import type { VRMExpressionOverrideType } from './VRMExpressionOverrideType';
-import type { VRMExpressionManager } from './VRMExpressionManager';
+import { VRMExpressionBind } from './VRMExpressionBind.js';
+import type { VRMExpressionOverrideType } from './VRMExpressionOverrideType.js';
+import type { VRMExpressionManager } from './VRMExpressionManager.js';
 
 // animationMixer の監視対象は、Scene の中に入っている必要がある。
 // そのため、表示オブジェクトではないけれど、Object3D を継承して Scene に投入できるようにする。

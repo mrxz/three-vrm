@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape';
+import type { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape.js';
 
 /**
  * Represents a collider of a VRM.

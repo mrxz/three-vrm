@@ -1,4 +1,4 @@
-import type { SpringBoneColliderShape } from './SpringBoneColliderShape';
+import type { SpringBoneColliderShape } from './SpringBoneColliderShape.js';
 
 /**
  * collider definition for SpringBone

@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { VRMSpringBoneColliderShapeSphere } from '../../VRMSpringBoneColliderShapeSphere';
-import { ColliderShapeBufferGeometry } from './ColliderShapeBufferGeometry';
+import { VRMSpringBoneColliderShapeSphere } from '../../VRMSpringBoneColliderShapeSphere.js';
+import { ColliderShapeBufferGeometry } from './ColliderShapeBufferGeometry.js';
 
 export class ColliderShapeSphereBufferGeometry extends THREE.BufferGeometry implements ColliderShapeBufferGeometry {
   public worldScale = 1.0;

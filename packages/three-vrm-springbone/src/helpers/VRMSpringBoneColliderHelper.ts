@@ -1,12 +1,12 @@
 import * as THREE from 'three';
-import { VRMSpringBoneCollider } from '../VRMSpringBoneCollider';
-import { VRMSpringBoneColliderShapeCapsule } from '../VRMSpringBoneColliderShapeCapsule';
-import { VRMSpringBoneColliderShapePlane } from '../VRMSpringBoneColliderShapePlane';
-import { VRMSpringBoneColliderShapeSphere } from '../VRMSpringBoneColliderShapeSphere';
-import { ColliderShapeBufferGeometry } from './utils/ColliderShapeBufferGeometry';
-import { ColliderShapeCapsuleBufferGeometry } from './utils/ColliderShapeCapsuleBufferGeometry';
-import { ColliderShapePlaneBufferGeometry } from './utils/ColliderShapePlaneBufferGeometry';
-import { ColliderShapeSphereBufferGeometry } from './utils/ColliderShapeSphereBufferGeometry';
+import { VRMSpringBoneCollider } from '../VRMSpringBoneCollider.js';
+import { VRMSpringBoneColliderShapeCapsule } from '../VRMSpringBoneColliderShapeCapsule.js';
+import { VRMSpringBoneColliderShapePlane } from '../VRMSpringBoneColliderShapePlane.js';
+import { VRMSpringBoneColliderShapeSphere } from '../VRMSpringBoneColliderShapeSphere.js';
+import { ColliderShapeBufferGeometry } from './utils/ColliderShapeBufferGeometry.js';
+import { ColliderShapeCapsuleBufferGeometry } from './utils/ColliderShapeCapsuleBufferGeometry.js';
+import { ColliderShapePlaneBufferGeometry } from './utils/ColliderShapePlaneBufferGeometry.js';
+import { ColliderShapeSphereBufferGeometry } from './utils/ColliderShapeSphereBufferGeometry.js';
 
 const _v3A = new THREE.Vector3();
 

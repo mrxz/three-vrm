@@ -1,6 +1,6 @@
-import type { Expressions } from './Expressions';
-import type { Humanoid } from './Humanoid';
-import type { LookAt } from './LookAt';
+import type { Expressions } from './Expressions.js';
+import type { Humanoid } from './Humanoid.js';
+import type { LookAt } from './LookAt.js';
 
 /**
  * glTF extension that defines humanoid animations.
