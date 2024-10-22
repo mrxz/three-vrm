@@ -14,8 +14,8 @@ import { VRMMaterialsHDREmissiveMultiplierLoaderPlugin } from '@pixiv/three-vrm-
 import { VRMMaterialsV0CompatPlugin } from '@pixiv/three-vrm-materials-v0compat';
 import { VRMNodeConstraintLoaderPlugin } from '@pixiv/three-vrm-node-constraint';
 import { VRMSpringBoneLoaderPlugin } from '@pixiv/three-vrm-springbone';
-import { VRMLoaderPluginOptions } from './VRMLoaderPluginOptions';
-import { VRM } from './VRM';
+import { VRMLoaderPluginOptions } from './VRMLoaderPluginOptions.js';
+import { VRM } from './VRM.js';
 
 export class VRMLoaderPlugin implements GLTFLoaderPlugin {
   public readonly parser: GLTFParser;

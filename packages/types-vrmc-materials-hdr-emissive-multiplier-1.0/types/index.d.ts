@@ -1,1 +1,1 @@
-export type { VRMCMaterialsHDREmissiveMultiplier } from './VRMCMaterialsHDREmissiveMultiplier';
+export type { VRMCMaterialsHDREmissiveMultiplier } from './VRMCMaterialsHDREmissiveMultiplier.js';

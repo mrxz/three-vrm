@@ -6,8 +6,8 @@ import type {
   VRMHumanBoneName,
   VRMHumanoid,
 } from '@pixiv/three-vrm-core';
-import type { VRMAnimation } from './VRMAnimation';
-import { VRMLookAtQuaternionProxy } from './VRMLookAtQuaternionProxy';
+import type { VRMAnimation } from './VRMAnimation.js';
+import { VRMLookAtQuaternionProxy } from './VRMLookAtQuaternionProxy.js';
 
 export function createVRMAnimationHumanoidTracks(
   vrmAnimation: VRMAnimation,

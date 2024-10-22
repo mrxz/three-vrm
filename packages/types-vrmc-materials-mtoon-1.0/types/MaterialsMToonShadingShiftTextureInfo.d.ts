@@ -1,4 +1,4 @@
-import type { MaterialsMToonTextureInfo } from './MaterialsMToonTextureInfo';
+import type { MaterialsMToonTextureInfo } from './MaterialsMToonTextureInfo.js';
 
 export interface MaterialsMToonShadingShiftTextureInfo extends MaterialsMToonTextureInfo {
   /**

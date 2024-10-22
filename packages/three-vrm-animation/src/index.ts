@@ -3,7 +3,7 @@ export {
   createVRMAnimationExpressionTracks,
   createVRMAnimationLookAtTrack,
   createVRMAnimationClip,
-} from './createVRMAnimationClip';
-export { VRMAnimation } from './VRMAnimation';
-export { VRMAnimationLoaderPlugin } from './VRMAnimationLoaderPlugin';
-export { VRMLookAtQuaternionProxy } from './VRMLookAtQuaternionProxy';
+} from './createVRMAnimationClip.js';
+export { VRMAnimation } from './VRMAnimation.js';
+export { VRMAnimationLoaderPlugin } from './VRMAnimationLoaderPlugin.js';
+export { VRMLookAtQuaternionProxy } from './VRMLookAtQuaternionProxy.js';

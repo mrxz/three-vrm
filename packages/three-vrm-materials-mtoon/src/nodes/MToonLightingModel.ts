@@ -7,8 +7,8 @@ import {
   shadeColor,
   shadingShift,
   shadingToony,
-} from './immutableNodes';
-import { FnCompat } from './utils/FnCompat';
+} from './immutableNodes.js';
+import { FnCompat } from './utils/FnCompat.js';
 
 // TODO: 0% confidence about function types.
 

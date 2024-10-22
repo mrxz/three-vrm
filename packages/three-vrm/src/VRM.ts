@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { VRMCore } from '@pixiv/three-vrm-core';
 import { VRMNodeConstraintManager } from '@pixiv/three-vrm-node-constraint';
 import { VRMSpringBoneManager } from '@pixiv/three-vrm-springbone';
-import { VRMParameters } from './VRMParameters';
+import { VRMParameters } from './VRMParameters.js';
 
 /**
  * A class that represents a single VRM model.

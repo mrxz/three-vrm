@@ -1,8 +1,8 @@
 /* eslint-env jest */
 
 import * as THREE from 'three';
-import { toBeCloseToQuaternion } from './matchers/toBeCloseToQuaternion';
-import { VRMRollConstraint } from '../VRMRollConstraint';
+import { toBeCloseToQuaternion } from './matchers/toBeCloseToQuaternion.js';
+import { VRMRollConstraint } from '../VRMRollConstraint.js';
 
 expect.extend({ toBeCloseToQuaternion });
 

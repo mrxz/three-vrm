@@ -1,4 +1,4 @@
-import type { HumanoidHumanBone } from './HumanoidHumanBone';
+import type { HumanoidHumanBone } from './HumanoidHumanBone.js';
 import type { HumanoidHumanBoneName } from '@pixiv/types-vrmc-vrm-1.0';
 
 /**

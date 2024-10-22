@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import type { VRMHumanBone } from './VRMHumanBone';
-import type { VRMHumanBones } from './VRMHumanBones';
-import type { VRMHumanBoneName } from './VRMHumanBoneName';
-import type { VRMPose } from './VRMPose';
-import { VRMRig } from './VRMRig';
-import { VRMHumanoidRig } from './VRMHumanoidRig';
+import type { VRMHumanBone } from './VRMHumanBone.js';
+import type { VRMHumanBones } from './VRMHumanBones.js';
+import type { VRMHumanBoneName } from './VRMHumanBoneName.js';
+import type { VRMPose } from './VRMPose.js';
+import { VRMRig } from './VRMRig.js';
+import { VRMHumanoidRig } from './VRMHumanoidRig.js';
 
 /**
  * A class represents a humanoid of a VRM.

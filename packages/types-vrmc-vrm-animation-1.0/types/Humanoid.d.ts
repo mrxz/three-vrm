@@ -1,4 +1,4 @@
-import { HumanoidHumanBones } from './HumanoidHumanBones';
+import { HumanoidHumanBones } from './HumanoidHumanBones.js';
 
 /**
  * An object which describes about humanoid bones.

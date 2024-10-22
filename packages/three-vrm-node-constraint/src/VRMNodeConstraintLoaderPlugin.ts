@@ -1,13 +1,13 @@
 import type * as ConstraintSchema from '@pixiv/types-vrmc-node-constraint-1.0';
 import type * as THREE from 'three';
 import type { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { VRMNodeConstraintHelper } from './helpers';
-import type { VRMNodeConstraintLoaderPluginOptions } from './VRMNodeConstraintLoaderPluginOptions';
-import { VRMNodeConstraintManager } from './VRMNodeConstraintManager';
-import { VRMRotationConstraint } from './VRMRotationConstraint';
+import { VRMNodeConstraintHelper } from './helpers/index.js';
+import type { VRMNodeConstraintLoaderPluginOptions } from './VRMNodeConstraintLoaderPluginOptions.js';
+import { VRMNodeConstraintManager } from './VRMNodeConstraintManager.js';
+import { VRMRotationConstraint } from './VRMRotationConstraint.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
-import { VRMAimConstraint } from './VRMAimConstraint';
-import { VRMRollConstraint } from './VRMRollConstraint';
+import { VRMAimConstraint } from './VRMAimConstraint.js';
+import { VRMRollConstraint } from './VRMRollConstraint.js';
 
 /**
  * Possible spec versions it recognizes.

@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { decomposePosition } from './utils/decomposePosition';
-import { decomposeRotation } from './utils/decomposeRotation';
-import { quatInvertCompat } from './utils/quatInvertCompat';
-import { VRMNodeConstraint } from './VRMNodeConstraint';
+import { decomposePosition } from './utils/decomposePosition.js';
+import { decomposeRotation } from './utils/decomposeRotation.js';
+import { quatInvertCompat } from './utils/quatInvertCompat.js';
+import { VRMNodeConstraint } from './VRMNodeConstraint.js';
 
 const _v3A = new THREE.Vector3();
 const _v3B = new THREE.Vector3();

@@ -1,4 +1,4 @@
-import type { FirstPersonMeshAnnotation } from './FirstPersonMeshAnnotation';
+import type { FirstPersonMeshAnnotation } from './FirstPersonMeshAnnotation.js';
 
 /**
  * First-person perspective settings

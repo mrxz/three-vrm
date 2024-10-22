@@ -1,4 +1,4 @@
-import type { SecondaryAnimationCollider } from './SecondaryAnimationCollider';
+import type { SecondaryAnimationCollider } from './SecondaryAnimationCollider.js';
 
 export interface SecondaryAnimationColliderGroup {
   /**

@@ -1,8 +1,8 @@
-export * from './helpers';
+export * from './helpers/index.js';
 
-export { VRMAimConstraint } from './VRMAimConstraint';
-export { VRMNodeConstraint } from './VRMNodeConstraint';
-export { VRMNodeConstraintLoaderPlugin } from './VRMNodeConstraintLoaderPlugin';
-export { VRMNodeConstraintManager } from './VRMNodeConstraintManager';
-export { VRMRollConstraint } from './VRMRollConstraint';
-export { VRMRotationConstraint } from './VRMRotationConstraint';
+export { VRMAimConstraint } from './VRMAimConstraint.js';
+export { VRMNodeConstraint } from './VRMNodeConstraint.js';
+export { VRMNodeConstraintLoaderPlugin } from './VRMNodeConstraintLoaderPlugin.js';
+export { VRMNodeConstraintManager } from './VRMNodeConstraintManager.js';
+export { VRMRollConstraint } from './VRMRollConstraint.js';
+export { VRMRotationConstraint } from './VRMRotationConstraint.js';

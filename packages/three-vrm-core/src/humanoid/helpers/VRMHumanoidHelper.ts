@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { VRMHumanBone } from '../VRMHumanBone';
-import { VRMHumanoid } from '../VRMHumanoid';
+import { VRMHumanBone } from '../VRMHumanBone.js';
+import { VRMHumanoid } from '../VRMHumanoid.js';
 
 const _v3A = new THREE.Vector3();
 const _v3B = new THREE.Vector3();

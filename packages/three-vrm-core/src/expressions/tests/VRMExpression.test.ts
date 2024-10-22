@@ -1,5 +1,5 @@
-import { VRMExpression } from '../VRMExpression';
-import { VRMExpressionBind } from '../VRMExpressionBind';
+import { VRMExpression } from '../VRMExpression.js';
+import { VRMExpressionBind } from '../VRMExpressionBind.js';
 
 class VRMExpressionMockBind implements VRMExpressionBind {
   public weight = 0.0;

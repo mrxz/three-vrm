@@ -1,5 +1,5 @@
 import * as THREE from 'three/webgpu';
-import { FnCompat } from './utils/FnCompat';
+import { FnCompat } from './utils/FnCompat.js';
 
 export const mtoonParametricRim = FnCompat(
   ({

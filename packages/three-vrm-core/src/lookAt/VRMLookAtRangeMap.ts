@@ -1,4 +1,4 @@
-import { saturate } from '../utils/saturate';
+import { saturate } from '../utils/saturate.js';
 
 export class VRMLookAtRangeMap {
   /**

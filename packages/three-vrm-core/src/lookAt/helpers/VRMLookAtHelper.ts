@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import { VRMLookAt } from '../VRMLookAt';
-import { FanBufferGeometry } from './utils/FanBufferGeometry';
-import { LineAndSphereBufferGeometry } from './utils/LineAndSphereBufferGeometry';
+import { VRMLookAt } from '../VRMLookAt.js';
+import { FanBufferGeometry } from './utils/FanBufferGeometry.js';
+import { LineAndSphereBufferGeometry } from './utils/LineAndSphereBufferGeometry.js';
 
 const _quatA = new THREE.Quaternion();
 const _quatB = new THREE.Quaternion();

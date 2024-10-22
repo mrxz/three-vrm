@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { calcAzimuthAltitude } from '../calcAzimuthAltitude';
+import { calcAzimuthAltitude } from '../calcAzimuthAltitude.js';
 
 describe('calcAzimuthAltitude', () => {
   it('processes a vector means azimuth = 0, altitude = 0', () => {

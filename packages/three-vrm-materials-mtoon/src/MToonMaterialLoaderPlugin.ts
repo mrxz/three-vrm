@@ -1,14 +1,14 @@
 import * as THREE from 'three';
 import * as V1MToonSchema from '@pixiv/types-vrmc-materials-mtoon-1.0';
 import type { GLTF, GLTFLoader, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import type { MToonMaterialParameters } from './MToonMaterialParameters';
-import type { MToonMaterialOutlineWidthMode } from './MToonMaterialOutlineWidthMode';
-import { GLTFMToonMaterialParamsAssignHelper } from './GLTFMToonMaterialParamsAssignHelper';
-import type { MToonMaterialLoaderPluginOptions } from './MToonMaterialLoaderPluginOptions';
-import type { MToonMaterialDebugMode } from './MToonMaterialDebugMode';
+import type { MToonMaterialParameters } from './MToonMaterialParameters.js';
+import type { MToonMaterialOutlineWidthMode } from './MToonMaterialOutlineWidthMode.js';
+import { GLTFMToonMaterialParamsAssignHelper } from './GLTFMToonMaterialParamsAssignHelper.js';
+import type { MToonMaterialLoaderPluginOptions } from './MToonMaterialLoaderPluginOptions.js';
+import type { MToonMaterialDebugMode } from './MToonMaterialDebugMode.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
-import { MToonMaterial } from './MToonMaterial';
-import type { MToonNodeMaterial } from './nodes/MToonNodeMaterial';
+import { MToonMaterial } from './MToonMaterial.js';
+import type { MToonNodeMaterial } from './nodes/MToonNodeMaterial.js';
 
 /**
  * Possible spec versions it recognizes.

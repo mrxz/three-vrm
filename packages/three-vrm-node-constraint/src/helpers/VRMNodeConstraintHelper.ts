@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { VRMNodeConstraint } from '../VRMNodeConstraint';
+import { VRMNodeConstraint } from '../VRMNodeConstraint.js';
 
 const _v3A = new THREE.Vector3();
 

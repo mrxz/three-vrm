@@ -1,7 +1,7 @@
-import { deepDispose } from './deepDispose';
-import { removeUnnecessaryJoints } from './removeUnnecessaryJoints';
-import { removeUnnecessaryVertices } from './removeUnnecessaryVertices';
-import { rotateVRM0 } from './rotateVRM0';
+import { deepDispose } from './deepDispose.js';
+import { removeUnnecessaryJoints } from './removeUnnecessaryJoints.js';
+import { removeUnnecessaryVertices } from './removeUnnecessaryVertices.js';
+import { rotateVRM0 } from './rotateVRM0.js';
 
 export class VRMUtils {
   private constructor() {

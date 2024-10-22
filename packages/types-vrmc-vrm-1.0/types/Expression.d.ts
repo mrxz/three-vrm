@@ -1,8 +1,8 @@
-import type { ExpressionMaterialColorBind } from './ExpressionMaterialColorBind';
-import type { ExpressionMorphTargetBind } from './ExpressionMorphTargetBind';
-import type { ExpressionOverrideType } from './ExpressionOverrideType';
-import type { ExpressionPresetName } from './ExpressionPresetName';
-import type { ExpressionTextureTransformBind } from './ExpressionTextureTransformBind';
+import type { ExpressionMaterialColorBind } from './ExpressionMaterialColorBind.js';
+import type { ExpressionMorphTargetBind } from './ExpressionMorphTargetBind.js';
+import type { ExpressionOverrideType } from './ExpressionOverrideType.js';
+import type { ExpressionPresetName } from './ExpressionPresetName.js';
+import type { ExpressionTextureTransformBind } from './ExpressionTextureTransformBind.js';
 
 /**
  * Definition of expression by weighted animation

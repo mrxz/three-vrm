@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { VRMNodeConstraint } from '../VRMNodeConstraint';
+import { VRMNodeConstraint } from '../VRMNodeConstraint.js';
 
 export class VRMMockedConstraint extends VRMNodeConstraint {
   public dependencies: Set<THREE.Object3D>;

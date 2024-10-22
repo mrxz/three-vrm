@@ -1,5 +1,5 @@
-import type { Expression } from './Expression';
-import type { ExpressionPresetName } from './ExpressionPresetName';
+import type { Expression } from './Expression.js';
+import type { ExpressionPresetName } from './ExpressionPresetName.js';
 
 export interface Expressions {
   preset?: {

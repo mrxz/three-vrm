@@ -1,4 +1,4 @@
-import type { VRMSpringBoneCollider } from './VRMSpringBoneCollider';
+import type { VRMSpringBoneCollider } from './VRMSpringBoneCollider.js';
 
 /**
  * Represents a collider group of a VRM.

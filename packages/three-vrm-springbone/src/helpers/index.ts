@@ -1,2 +1,2 @@
-export { VRMSpringBoneColliderHelper } from './VRMSpringBoneColliderHelper';
-export { VRMSpringBoneJointHelper } from './VRMSpringBoneJointHelper';
+export { VRMSpringBoneColliderHelper } from './VRMSpringBoneColliderHelper.js';
+export { VRMSpringBoneJointHelper } from './VRMSpringBoneJointHelper.js';

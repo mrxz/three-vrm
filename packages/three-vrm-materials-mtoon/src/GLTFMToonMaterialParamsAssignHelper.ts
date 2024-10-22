@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { MToonMaterialParameters } from './MToonMaterialParameters';
-import { setTextureColorSpace } from './utils/setTextureColorSpace';
+import { MToonMaterialParameters } from './MToonMaterialParameters.js';
+import { setTextureColorSpace } from './utils/setTextureColorSpace.js';
 
 /**
  * MaterialParameters hates `undefined`. This helper automatically rejects assign of these `undefined`.

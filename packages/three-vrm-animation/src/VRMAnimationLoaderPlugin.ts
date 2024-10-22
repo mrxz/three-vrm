@@ -4,8 +4,8 @@ import { GLTF as GLTFSchema } from '@gltf-transform/core';
 import { VRMCVRMAnimation } from '@pixiv/types-vrmc-vrm-animation-1.0';
 import type { VRMHumanBoneName } from '@pixiv/three-vrm-core';
 import { VRMExpressionPresetName, VRMHumanBoneParentMap } from '@pixiv/three-vrm-core';
-import { VRMAnimation } from './VRMAnimation';
-import { arrayChunk } from './utils/arrayChunk';
+import { VRMAnimation } from './VRMAnimation.js';
+import { arrayChunk } from './utils/arrayChunk.js';
 
 const MAT4_IDENTITY = /*@__PURE__*/ new THREE.Matrix4();
 

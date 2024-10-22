@@ -2,15 +2,15 @@ import type * as THREE from 'three';
 import type * as V0VRM from '@pixiv/types-vrm-0.0';
 import type * as V1VRMSchema from '@pixiv/types-vrmc-vrm-1.0';
 import type { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import type { VRMExpressionManager } from '../expressions/VRMExpressionManager';
-import type { VRMHumanoid } from '../humanoid/VRMHumanoid';
-import { VRMLookAtHelper } from './helpers/VRMLookAtHelper';
-import { VRMLookAt } from './VRMLookAt';
-import type { VRMLookAtApplier } from './VRMLookAtApplier';
-import { VRMLookAtBoneApplier } from './VRMLookAtBoneApplier';
-import { VRMLookAtExpressionApplier } from './VRMLookAtExpressionApplier';
-import type { VRMLookAtLoaderPluginOptions } from './VRMLookAtLoaderPluginOptions';
-import { VRMLookAtRangeMap } from './VRMLookAtRangeMap';
+import type { VRMExpressionManager } from '../expressions/VRMExpressionManager.js';
+import type { VRMHumanoid } from '../humanoid/VRMHumanoid.js';
+import { VRMLookAtHelper } from './helpers/VRMLookAtHelper.js';
+import { VRMLookAt } from './VRMLookAt.js';
+import type { VRMLookAtApplier } from './VRMLookAtApplier.js';
+import { VRMLookAtBoneApplier } from './VRMLookAtBoneApplier.js';
+import { VRMLookAtExpressionApplier } from './VRMLookAtExpressionApplier.js';
+import type { VRMLookAtLoaderPluginOptions } from './VRMLookAtLoaderPluginOptions.js';
+import { VRMLookAtRangeMap } from './VRMLookAtRangeMap.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
 
 /**

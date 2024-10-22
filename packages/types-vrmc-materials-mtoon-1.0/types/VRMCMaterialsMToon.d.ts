@@ -1,6 +1,6 @@
-import type { MaterialsMToonOutlineWidthMode } from './MaterialsMToonOutlineWidthMode';
-import type { MaterialsMToonShadingShiftTextureInfo } from './MaterialsMToonShadingShiftTextureInfo';
-import type { MaterialsMToonTextureInfo } from './MaterialsMToonTextureInfo';
+import type { MaterialsMToonOutlineWidthMode } from './MaterialsMToonOutlineWidthMode.js';
+import type { MaterialsMToonShadingShiftTextureInfo } from './MaterialsMToonShadingShiftTextureInfo.js';
+import type { MaterialsMToonTextureInfo } from './MaterialsMToonTextureInfo.js';
 
 export interface VRMCMaterialsMToon {
   /**

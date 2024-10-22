@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { traverseAncestorsFromRoot } from '../traverseAncestorsFromRoot';
+import { traverseAncestorsFromRoot } from '../traverseAncestorsFromRoot.js';
 
 describe('traverseAncestorsFromRoot', () => {
   it('should traverse ancestors from root', () => {

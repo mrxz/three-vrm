@@ -1,13 +1,13 @@
 import { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { VRMCoreLoaderPluginOptions } from './VRMCoreLoaderPluginOptions';
-import { VRMCore } from './VRMCore';
-import { VRMExpressionLoaderPlugin } from './expressions/VRMExpressionLoaderPlugin';
-import { VRMFirstPersonLoaderPlugin } from './firstPerson/VRMFirstPersonLoaderPlugin';
-import { VRMHumanoidLoaderPlugin } from './humanoid/VRMHumanoidLoaderPlugin';
-import { VRMMetaLoaderPlugin } from './meta/VRMMetaLoaderPlugin';
-import { VRMLookAtLoaderPlugin } from './lookAt/VRMLookAtLoaderPlugin';
-import type { VRMHumanoid } from './humanoid';
-import type { VRMMeta } from './meta';
+import { VRMCoreLoaderPluginOptions } from './VRMCoreLoaderPluginOptions.js';
+import { VRMCore } from './VRMCore.js';
+import { VRMExpressionLoaderPlugin } from './expressions/VRMExpressionLoaderPlugin.js';
+import { VRMFirstPersonLoaderPlugin } from './firstPerson/VRMFirstPersonLoaderPlugin.js';
+import { VRMHumanoidLoaderPlugin } from './humanoid/VRMHumanoidLoaderPlugin.js';
+import { VRMMetaLoaderPlugin } from './meta/VRMMetaLoaderPlugin.js';
+import { VRMLookAtLoaderPlugin } from './lookAt/VRMLookAtLoaderPlugin.js';
+import type { VRMHumanoid } from './humanoid/index.js';
+import type { VRMMeta } from './meta/index.js';
 
 export class VRMCoreLoaderPlugin implements GLTFLoaderPlugin {
   public get name(): string {

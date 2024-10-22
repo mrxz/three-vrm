@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { VRMSpringBoneJoint } from '../VRMSpringBoneJoint';
-import { SpringBoneBufferGeometry } from './utils/SpringBoneBufferGeometry';
+import { VRMSpringBoneJoint } from '../VRMSpringBoneJoint.js';
+import { SpringBoneBufferGeometry } from './utils/SpringBoneBufferGeometry.js';
 
 const _v3A = new THREE.Vector3();
 

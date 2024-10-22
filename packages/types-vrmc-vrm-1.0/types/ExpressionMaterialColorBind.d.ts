@@ -1,4 +1,4 @@
-import type { ExpressionMaterialColorType } from './ExpressionMaterialColorType';
+import type { ExpressionMaterialColorType } from './ExpressionMaterialColorType.js';
 
 export interface ExpressionMaterialColorBind {
   /**

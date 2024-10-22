@@ -1,6 +1,6 @@
-import type { VRMFirstPersonMeshAnnotation } from './VRMFirstPersonMeshAnnotation';
+import type { VRMFirstPersonMeshAnnotation } from './VRMFirstPersonMeshAnnotation.js';
 import * as THREE from 'three';
-import type { VRMHumanoid } from '../humanoid';
+import type { VRMHumanoid } from '../humanoid/index.js';
 
 export class VRMFirstPerson {
   /**

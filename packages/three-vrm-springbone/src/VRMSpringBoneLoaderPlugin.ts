@@ -3,17 +3,17 @@ import type * as V1SpringBoneSchema from '@pixiv/types-vrmc-springbone-1.0';
 import type * as SpringBoneExtendedColliderSchema from '@pixiv/types-vrmc-springbone-extended-collider-1.0';
 import * as THREE from 'three';
 import type { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { VRMSpringBoneColliderHelper, VRMSpringBoneJointHelper } from './helpers';
-import { VRMSpringBoneCollider } from './VRMSpringBoneCollider';
-import type { VRMSpringBoneColliderGroup } from './VRMSpringBoneColliderGroup';
-import { VRMSpringBoneColliderShapeCapsule } from './VRMSpringBoneColliderShapeCapsule';
-import { VRMSpringBoneColliderShapeSphere } from './VRMSpringBoneColliderShapeSphere';
-import { VRMSpringBoneJoint } from './VRMSpringBoneJoint';
-import type { VRMSpringBoneLoaderPluginOptions } from './VRMSpringBoneLoaderPluginOptions';
-import { VRMSpringBoneManager } from './VRMSpringBoneManager';
-import type { VRMSpringBoneJointSettings } from './VRMSpringBoneJointSettings';
+import { VRMSpringBoneColliderHelper, VRMSpringBoneJointHelper } from './helpers/index.js';
+import { VRMSpringBoneCollider } from './VRMSpringBoneCollider.js';
+import type { VRMSpringBoneColliderGroup } from './VRMSpringBoneColliderGroup.js';
+import { VRMSpringBoneColliderShapeCapsule } from './VRMSpringBoneColliderShapeCapsule.js';
+import { VRMSpringBoneColliderShapeSphere } from './VRMSpringBoneColliderShapeSphere.js';
+import { VRMSpringBoneJoint } from './VRMSpringBoneJoint.js';
+import type { VRMSpringBoneLoaderPluginOptions } from './VRMSpringBoneLoaderPluginOptions.js';
+import { VRMSpringBoneManager } from './VRMSpringBoneManager.js';
+import type { VRMSpringBoneJointSettings } from './VRMSpringBoneJointSettings.js';
 import { GLTF as GLTFSchema } from '@gltf-transform/core';
-import { VRMSpringBoneColliderShapePlane } from './VRMSpringBoneColliderShapePlane';
+import { VRMSpringBoneColliderShapePlane } from './VRMSpringBoneColliderShapePlane.js';
 
 const EXTENSION_NAME_EXTENDED_COLLIDER = 'VRMC_springBone_extended_collider';
 

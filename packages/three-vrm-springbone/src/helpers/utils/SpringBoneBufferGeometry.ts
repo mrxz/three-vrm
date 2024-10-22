@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { VRMSpringBoneJoint } from '../../VRMSpringBoneJoint';
+import { VRMSpringBoneJoint } from '../../VRMSpringBoneJoint.js';
 
 export class SpringBoneBufferGeometry extends THREE.BufferGeometry {
   public worldScale = 1.0;

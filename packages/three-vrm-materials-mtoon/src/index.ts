@@ -1,6 +1,6 @@
-export { MToonMaterialLoaderPlugin } from './MToonMaterialLoaderPlugin';
-export type { MToonMaterialLoaderPluginOptions } from './MToonMaterialLoaderPluginOptions';
-export { MToonMaterial } from './MToonMaterial';
-export { MToonMaterialDebugMode } from './MToonMaterialDebugMode';
-export { MToonMaterialOutlineWidthMode } from './MToonMaterialOutlineWidthMode';
-export type { MToonMaterialParameters } from './MToonMaterialParameters';
+export { MToonMaterialLoaderPlugin } from './MToonMaterialLoaderPlugin.js';
+export type { MToonMaterialLoaderPluginOptions } from './MToonMaterialLoaderPluginOptions.js';
+export { MToonMaterial } from './MToonMaterial.js';
+export { MToonMaterialDebugMode } from './MToonMaterialDebugMode.js';
+export { MToonMaterialOutlineWidthMode } from './MToonMaterialOutlineWidthMode.js';
+export type { MToonMaterialParameters } from './MToonMaterialParameters.js';

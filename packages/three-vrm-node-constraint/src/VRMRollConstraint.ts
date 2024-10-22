@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { quatInvertCompat } from './utils/quatInvertCompat';
-import { VRMNodeConstraint } from './VRMNodeConstraint';
+import { quatInvertCompat } from './utils/quatInvertCompat.js';
+import { VRMNodeConstraint } from './VRMNodeConstraint.js';
 
 const _v3A = new THREE.Vector3();
 const _quatA = new THREE.Quaternion();

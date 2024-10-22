@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import type { VRMExpressionPresetName, VRMHumanBoneName } from '@pixiv/three-vrm-core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { createVRMAnimationClip } from './createVRMAnimationClip';
+import type { createVRMAnimationClip } from './createVRMAnimationClip.js';
 
 /**
  * Represents a single VRM Animation.

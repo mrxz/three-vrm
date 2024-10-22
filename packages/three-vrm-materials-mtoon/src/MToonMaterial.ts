@@ -3,10 +3,10 @@
 import * as THREE from 'three';
 import vertexShader from './shaders/mtoon.vert';
 import fragmentShader from './shaders/mtoon.frag';
-import { MToonMaterialDebugMode } from './MToonMaterialDebugMode';
-import { MToonMaterialOutlineWidthMode } from './MToonMaterialOutlineWidthMode';
-import type { MToonMaterialParameters } from './MToonMaterialParameters';
-import { getTextureColorSpace } from './utils/getTextureColorSpace';
+import { MToonMaterialDebugMode } from './MToonMaterialDebugMode.js';
+import { MToonMaterialOutlineWidthMode } from './MToonMaterialOutlineWidthMode.js';
+import type { MToonMaterialParameters } from './MToonMaterialParameters.js';
+import { getTextureColorSpace } from './utils/getTextureColorSpace.js';
 
 /**
  * MToon is a material specification that has various features.

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { VRMHumanBoneName } from './VRMHumanBoneName';
+import { VRMHumanBoneName } from './VRMHumanBoneName.js';
 
 /**
  * An object that maps from {@link VRMHumanBoneName} to its parent {@link VRMHumanBoneName}.
