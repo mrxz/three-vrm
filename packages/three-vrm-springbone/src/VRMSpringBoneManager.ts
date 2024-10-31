@@ -163,7 +163,7 @@ export class VRMSpringBoneManager {
     }
     springBonesTried.add(springBone);
 
-    const depObjects = this._getDependencies(springBone);
+    const depObjects = springBone.dependencies;
     for (const depObject of depObjects) {
       traverseAncestorsFromRoot(depObject, (depObjectAncestor) => {
         const objectSet = this._objectSpringBonesMap.get(depObjectAncestor);
@@ -188,27 +188,5 @@ export class VRMSpringBoneManager {
     objectUpdated.add(springBone.bone);
 
     springBonesDone.add(springBone);
-  }
-
-  /**
-   * Return a set of objects that are dependant of given spring bone.
-   * @param springBone A spring bone
-   * @return A set of objects that are dependant of given spring bone
-   */
-  private _getDependencies(springBone: VRMSpringBoneJoint): Set<THREE.Object3D> {
-    const set = new Set<THREE.Object3D>();
-
-    const parent = springBone.bone.parent;
-    if (parent) {
-      set.add(parent);
-    }
-
-    springBone.colliderGroups.forEach((colliderGroup) => {
-      colliderGroup.colliders.forEach((collider) => {
-        set.add(collider);
-      });
-    });
-
-    return set;
   }
 }
