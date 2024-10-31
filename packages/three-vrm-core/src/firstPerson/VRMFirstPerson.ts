@@ -217,7 +217,8 @@ export class VRMFirstPerson {
     if (src.onBeforeRender) {
       dst.onBeforeRender = src.onBeforeRender;
     }
-    dst.bind(new THREE.Skeleton(src.skeleton.bones, src.skeleton.boneInverses), new THREE.Matrix4());
+    // Note: the skeleton can be re-used
+    dst.bind(src.skeleton, new THREE.Matrix4());
     return dst;
   }
 

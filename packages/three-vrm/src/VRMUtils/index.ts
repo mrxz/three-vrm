@@ -1,3 +1,4 @@
+import { deduplicateSkeletons } from './deduplicateSkeletons.js';
 import { deepDispose } from './deepDispose.js';
 import { removeUnnecessaryJoints } from './removeUnnecessaryJoints.js';
 import { removeUnnecessaryVertices } from './removeUnnecessaryVertices.js';
@@ -8,6 +9,7 @@ export class VRMUtils {
     // this class is not meant to be instantiated
   }
 
+  public static deduplicateSkeletons = deduplicateSkeletons;
   public static deepDispose = deepDispose;
   public static removeUnnecessaryJoints = removeUnnecessaryJoints;
   public static removeUnnecessaryVertices = removeUnnecessaryVertices;
