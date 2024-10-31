@@ -7,6 +7,7 @@ import { traverseChildrenUntilConditionMet } from './utils/traverseChildrenUntil
 
 export class VRMSpringBoneManager {
   private _joints = new Set<VRMSpringBoneJoint>();
+  private _sortedJoints: Array<VRMSpringBoneJoint> = [];
   private _hasWarnedCircularDependency = false;
 
   public get joints(): Set<VRMSpringBoneJoint> {
@@ -53,6 +54,7 @@ export class VRMSpringBoneManager {
       this._objectSpringBonesMap.set(joint.bone, objectSet);
     }
     objectSet.add(joint);
+    this._sortJoints();
   }
 
   /**
@@ -69,6 +71,7 @@ export class VRMSpringBoneManager {
 
     const objectSet = this._objectSpringBonesMap.get(joint.bone)!;
     objectSet.delete(joint);
+    this._sortJoints();
   }
 
   /**
@@ -80,40 +83,83 @@ export class VRMSpringBoneManager {
     this.deleteJoint(joint);
   }
 
-  public setInitState(): void {
+  /**
+   * Sorts the joints ensuring they are updated in the correct order taking dependencies into account.
+   */
+  private _sortJoints() {
+    const springBoneOrder: Array<VRMSpringBoneJoint> = [];
     const springBonesTried = new Set<VRMSpringBoneJoint>();
     const springBonesDone = new Set<VRMSpringBoneJoint>();
-    const objectUpdated = new Set<THREE.Object3D>();
-
     for (const springBone of this._joints) {
-      this._processSpringBone(springBone, springBonesTried, springBonesDone, objectUpdated, (springBone) =>
-        springBone.setInitState(),
-      );
+      this._insertJointSort(springBone, springBonesTried, springBonesDone, springBoneOrder)
+    }
+    this._sortedJoints = springBoneOrder;
+  }
+
+  private _insertJointSort(
+    springBone: VRMSpringBoneJoint,
+    springBonesTried: Set<VRMSpringBoneJoint>,
+    springBonesDone: Set<VRMSpringBoneJoint>,
+    springBoneOrder: Array<VRMSpringBoneJoint>
+  ) {
+    if (springBonesDone.has(springBone)) {
+      return;
+    }
+
+    if (springBonesTried.has(springBone)) {
+      if (!this._hasWarnedCircularDependency) {
+        console.warn('VRMSpringBoneManager: Circular dependency detected');
+        this._hasWarnedCircularDependency = true; // FIXME: Reset whenever joints change
+      }
+      return;
+    }
+
+    const depObjects = springBone.dependencies;
+    for (const depObject of depObjects) {
+      traverseAncestorsFromRoot(depObject, (depObjectAncestor) => {
+        const objectSet = this._objectSpringBonesMap.get(depObjectAncestor);
+        if (objectSet) {
+          for (const depSpringBone of objectSet) {
+            this._insertJointSort(depSpringBone, springBonesTried, springBonesDone, springBoneOrder);
+          }
+        } else {
+          // FIXME: Include non spring bone joints in the sequence to ensure matrix world is up-to-date
+          //        in case of sparse spring bone chains.
+          console.warn('Sparse spring bone chain detected, updates might be incorrect');
+        }
+      });
+    }
+
+    springBoneOrder.push(springBone);
+
+    springBonesDone.add(springBone);
+  }
+
+  public setInitState(): void {
+    for (let i = 0; i < this._sortedJoints.length; i++) {
+      const springBone = this._sortedJoints[i];
+      springBone.bone.updateMatrix();
+      springBone.bone.updateWorldMatrix(false, false);
+      springBone.setInitState();
     }
   }
 
   public reset(): void {
-    const springBonesTried = new Set<VRMSpringBoneJoint>();
-    const springBonesDone = new Set<VRMSpringBoneJoint>();
-    const objectUpdated = new Set<THREE.Object3D>();
-
-    for (const springBone of this._joints) {
-      this._processSpringBone(springBone, springBonesTried, springBonesDone, objectUpdated, (springBone) =>
-        springBone.reset(),
-      );
+    for (let i = 0; i < this._sortedJoints.length; i++) {
+      const springBone = this._sortedJoints[i];
+      springBone.bone.updateMatrix();
+      springBone.bone.updateWorldMatrix(false, false);
+      springBone.reset();
     }
   }
 
   public update(delta: number): void {
-    const springBonesTried = new Set<VRMSpringBoneJoint>();
-    const springBonesDone = new Set<VRMSpringBoneJoint>();
-    const objectUpdated = new Set<THREE.Object3D>();
-
-    for (const springBone of this._joints) {
+    for (let i = 0; i < this._sortedJoints.length; i++) {
       // update the springbone
-      this._processSpringBone(springBone, springBonesTried, springBonesDone, objectUpdated, (springBone) =>
-        springBone.update(delta),
-      );
+      const springBone = this._sortedJoints[i];
+      springBone.bone.updateMatrix();
+      springBone.bone.updateWorldMatrix(false, false);
+      springBone.update(delta);
 
       // update children world matrices
       // it is required when the spring bone chain is sparse
@@ -128,65 +174,5 @@ export class VRMSpringBoneManager {
         return false;
       });
     }
-  }
-
-  /**
-   * Update a spring bone.
-   * If there are other spring bone that are dependant, it will try to update them recursively.
-   * It updates matrixWorld of all ancestors and myself.
-   * It might log an warning message if there are any circular dependencies.
-   *
-   * Intended to be used in {@link update} and {@link _processSpringBone} itself recursively.
-   *
-   * @param springBone A springBone you want to update
-   * @param springBonesTried Set of springBones that are already tried to be updated
-   * @param springBonesDone Set of springBones that are already up to date
-   * @param objectUpdated Set of object3D whose matrixWorld is updated
-   */
-  private _processSpringBone(
-    springBone: VRMSpringBoneJoint,
-    springBonesTried: Set<VRMSpringBoneJoint>,
-    springBonesDone: Set<VRMSpringBoneJoint>,
-    objectUpdated: Set<THREE.Object3D>,
-    callback: (springBone: VRMSpringBoneJoint) => void,
-  ): void {
-    if (springBonesDone.has(springBone)) {
-      return;
-    }
-
-    if (springBonesTried.has(springBone)) {
-      if (!this._hasWarnedCircularDependency) {
-        console.warn('VRMSpringBoneManager: Circular dependency detected while updating springbones');
-        this._hasWarnedCircularDependency = true;
-      }
-      return;
-    }
-    springBonesTried.add(springBone);
-
-    const depObjects = springBone.dependencies;
-    for (const depObject of depObjects) {
-      traverseAncestorsFromRoot(depObject, (depObjectAncestor) => {
-        const objectSet = this._objectSpringBonesMap.get(depObjectAncestor);
-        if (objectSet) {
-          for (const depSpringBone of objectSet) {
-            this._processSpringBone(depSpringBone, springBonesTried, springBonesDone, objectUpdated, callback);
-          }
-        } else if (!objectUpdated.has(depObjectAncestor)) {
-          // update matrix of non-springbone
-          depObjectAncestor.updateWorldMatrix(false, false);
-          objectUpdated.add(depObjectAncestor);
-        }
-      });
-    }
-
-    // update my matrix
-    springBone.bone.updateMatrix();
-    springBone.bone.updateWorldMatrix(false, false);
-
-    callback(springBone);
-
-    objectUpdated.add(springBone.bone);
-
-    springBonesDone.add(springBone);
   }
 }
