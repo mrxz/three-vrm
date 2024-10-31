@@ -22,7 +22,7 @@ export class VRMExpression extends THREE.Object3D {
   public weight = 0.0;
 
   /**
-   * Interpret values greater than 0.5 as 1.0, ortherwise 0.0.
+   * Interpret values greater than 0.5 as 1.0, otherwise 0.0.
    */
   public isBinary = false;
 
@@ -110,6 +110,8 @@ export class VRMExpression extends THREE.Object3D {
     // 表示目的のオブジェクトではないので、負荷軽減のために visible を false にしておく。
     // これにより、このインスタンスに対する毎フレームの matrix 自動計算を省略できる。
     this.visible = false;
+    this.matrixWorldAutoUpdate = false;
+    this.matrixAutoUpdate = false;
   }
 
   public addBind(bind: VRMExpressionBind): void {

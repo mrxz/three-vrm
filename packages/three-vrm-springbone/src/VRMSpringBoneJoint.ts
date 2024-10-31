@@ -319,7 +319,7 @@ export class VRMSpringBoneJoint {
   private _collision(tail: THREE.Vector3): void {
     this.colliderGroups.forEach((colliderGroup) => {
       colliderGroup.colliders.forEach((collider) => {
-        const dist = collider.shape.calculateCollision(collider.matrixWorld, tail, this.settings.hitRadius, _v3A);
+        const dist = collider.shape.calculateCollision(collider.parent!.matrixWorld, tail, this.settings.hitRadius, _v3A);
 
         if (dist < 0.0) {
           // hit

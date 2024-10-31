@@ -24,8 +24,8 @@ export function removeUnnecessaryVertices(root: THREE.Object3D): void {
     const geometry = mesh.geometry;
 
     // if the geometry does not have an index buffer it does not need to process
-    const origianlIndex = geometry.index;
-    if (origianlIndex == null) {
+    const originalIndex = geometry.index;
+    if (originalIndex == null) {
       return;
     }
 
@@ -66,7 +66,7 @@ export function removeUnnecessaryVertices(root: THREE.Object3D): void {
 
     // reorganize indices
     {
-      const originalIndexArray = origianlIndex.array;
+      const originalIndexArray = originalIndex.array;
       const newIndexArray = new (originalIndexArray.constructor as any)(originalIndexArray.length);
 
       let indexHead = 0;

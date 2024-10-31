@@ -14,5 +14,7 @@ export class VRMSpringBoneCollider extends THREE.Object3D {
     super();
 
     this.shape = shape;
+    this.matrixAutoUpdate = false;
+    this.matrixWorldAutoUpdate = false;
   }
 }
