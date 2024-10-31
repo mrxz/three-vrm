@@ -63,6 +63,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set color(value: THREE.Color) {
     this.uniforms.litFactor.value = value;
+    this._dirty = true;
   }
 
   public get map(): THREE.Texture | null {
@@ -70,6 +71,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set map(value: THREE.Texture | null) {
     this.uniforms.map.value = value;
+    this._dirty = true;
   }
 
   public get normalMap(): THREE.Texture | null {
@@ -77,6 +79,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set normalMap(value: THREE.Texture | null) {
     this.uniforms.normalMap.value = value;
+    this._dirty = true;
   }
 
   public get normalScale(): THREE.Vector2 {
@@ -84,6 +87,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set normalScale(value: THREE.Vector2) {
     this.uniforms.normalScale.value = value;
+    this._dirty = true;
   }
 
   public get emissive(): THREE.Color {
@@ -91,6 +95,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set emissive(value: THREE.Color) {
     this.uniforms.emissive.value = value;
+    this._dirty = true;
   }
 
   public get emissiveIntensity(): number {
@@ -98,6 +103,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set emissiveIntensity(value: number) {
     this.uniforms.emissiveIntensity.value = value;
+    this._dirty = true;
   }
 
   public get emissiveMap(): THREE.Texture | null {
@@ -105,6 +111,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set emissiveMap(value: THREE.Texture | null) {
     this.uniforms.emissiveMap.value = value;
+    this._dirty = true;
   }
 
   public get shadeColorFactor(): THREE.Color {
@@ -112,6 +119,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set shadeColorFactor(value: THREE.Color) {
     this.uniforms.shadeColorFactor.value = value;
+    this._dirty = true;
   }
 
   public get shadeMultiplyTexture(): THREE.Texture | null {
@@ -119,6 +127,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set shadeMultiplyTexture(value: THREE.Texture | null) {
     this.uniforms.shadeMultiplyTexture.value = value;
+    this._dirty = true;
   }
 
   public get shadingShiftFactor(): number {
@@ -126,6 +135,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set shadingShiftFactor(value: number) {
     this.uniforms.shadingShiftFactor.value = value;
+    this._dirty = true;
   }
 
   public get shadingShiftTexture(): THREE.Texture | null {
@@ -133,6 +143,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set shadingShiftTexture(value: THREE.Texture | null) {
     this.uniforms.shadingShiftTexture.value = value;
+    this._dirty = true;
   }
 
   public get shadingShiftTextureScale(): number {
@@ -140,6 +151,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set shadingShiftTextureScale(value: number) {
     this.uniforms.shadingShiftTextureScale.value = value;
+    this._dirty = true;
   }
 
   public get shadingToonyFactor(): number {
@@ -147,6 +159,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set shadingToonyFactor(value: number) {
     this.uniforms.shadingToonyFactor.value = value;
+    this._dirty = true;
   }
 
   public get giEqualizationFactor(): number {
@@ -154,6 +167,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set giEqualizationFactor(value: number) {
     this.uniforms.giEqualizationFactor.value = value;
+    this._dirty = true;
   }
 
   public get matcapFactor(): THREE.Color {
@@ -161,6 +175,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set matcapFactor(value: THREE.Color) {
     this.uniforms.matcapFactor.value = value;
+    this._dirty = true;
   }
 
   public get matcapTexture(): THREE.Texture | null {
@@ -168,6 +183,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set matcapTexture(value: THREE.Texture | null) {
     this.uniforms.matcapTexture.value = value;
+    this._dirty = true;
   }
 
   public get parametricRimColorFactor(): THREE.Color {
@@ -175,6 +191,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set parametricRimColorFactor(value: THREE.Color) {
     this.uniforms.parametricRimColorFactor.value = value;
+    this._dirty = true;
   }
 
   public get rimMultiplyTexture(): THREE.Texture | null {
@@ -182,6 +199,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set rimMultiplyTexture(value: THREE.Texture | null) {
     this.uniforms.rimMultiplyTexture.value = value;
+    this._dirty = true;
   }
 
   public get rimLightingMixFactor(): number {
@@ -189,6 +207,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set rimLightingMixFactor(value: number) {
     this.uniforms.rimLightingMixFactor.value = value;
+    this._dirty = true;
   }
 
   public get parametricRimFresnelPowerFactor(): number {
@@ -196,6 +215,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set parametricRimFresnelPowerFactor(value: number) {
     this.uniforms.parametricRimFresnelPowerFactor.value = value;
+    this._dirty = true;
   }
 
   public get parametricRimLiftFactor(): number {
@@ -203,6 +223,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set parametricRimLiftFactor(value: number) {
     this.uniforms.parametricRimLiftFactor.value = value;
+    this._dirty = true;
   }
 
   public get outlineWidthMultiplyTexture(): THREE.Texture | null {
@@ -210,6 +231,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set outlineWidthMultiplyTexture(value: THREE.Texture | null) {
     this.uniforms.outlineWidthMultiplyTexture.value = value;
+    this._dirty = true;
   }
 
   public get outlineWidthFactor(): number {
@@ -217,6 +239,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set outlineWidthFactor(value: number) {
     this.uniforms.outlineWidthFactor.value = value;
+    this._dirty = true;
   }
 
   public get outlineColorFactor(): THREE.Color {
@@ -224,6 +247,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set outlineColorFactor(value: THREE.Color) {
     this.uniforms.outlineColorFactor.value = value;
+    this._dirty = true;
   }
 
   public get outlineLightingMixFactor(): number {
@@ -231,6 +255,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set outlineLightingMixFactor(value: number) {
     this.uniforms.outlineLightingMixFactor.value = value;
+    this._dirty = true;
   }
 
   public get uvAnimationMaskTexture(): THREE.Texture | null {
@@ -238,6 +263,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set uvAnimationMaskTexture(value: THREE.Texture | null) {
     this.uniforms.uvAnimationMaskTexture.value = value;
+    this._dirty = true;
   }
 
   public get uvAnimationScrollXOffset(): number {
@@ -245,6 +271,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set uvAnimationScrollXOffset(value: number) {
     this.uniforms.uvAnimationScrollXOffset.value = value;
+    this._dirty = true;
   }
 
   public get uvAnimationScrollYOffset(): number {
@@ -252,6 +279,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set uvAnimationScrollYOffset(value: number) {
     this.uniforms.uvAnimationScrollYOffset.value = value;
+    this._dirty = true;
   }
 
   public get uvAnimationRotationPhase(): number {
@@ -259,6 +287,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
   public set uvAnimationRotationPhase(value: number) {
     this.uniforms.uvAnimationRotationPhase.value = value;
+    this._dirty = true;
   }
 
   public uvAnimationScrollXSpeedFactor = 0.0;
@@ -374,6 +403,9 @@ export class MToonMaterial extends THREE.ShaderMaterial {
     return true;
   }
 
+  private _customProgramCacheKey = '';
+  private _dirty = true;
+
   constructor(parameters: MToonMaterialParameters = {}) {
     super({ vertexShader, fragmentShader });
 
@@ -442,15 +474,22 @@ export class MToonMaterial extends THREE.ShaderMaterial {
     this._uploadUniformsWorkaround();
 
     // == update shader stuff ======================================================================
-    this.customProgramCacheKey = () =>
-      [
-        ...Object.entries(this._generateDefines()).map(([token, macro]) => `${token}:${macro}`),
-        this.matcapTexture ? `matcapTextureColorSpace:${getTextureColorSpace(this.matcapTexture)}` : '',
-        this.shadeMultiplyTexture
-          ? `shadeMultiplyTextureColorSpace:${getTextureColorSpace(this.shadeMultiplyTexture)}`
-          : '',
-        this.rimMultiplyTexture ? `rimMultiplyTextureColorSpace:${getTextureColorSpace(this.rimMultiplyTexture)}` : '',
-      ].join(',');
+    this.customProgramCacheKey = () => {
+      // FIXME: Verify that needsUpdate flag can be used here.
+      //        It might get reset before customProgramCacheKey is called.
+      if(this._dirty || this.needsUpdate) {
+        this._customProgramCacheKey = [
+          ...Object.entries(this._generateDefines()).map(([token, macro]) => `${token}:${macro}`),
+          this.matcapTexture ? `matcapTextureColorSpace:${getTextureColorSpace(this.matcapTexture)}` : '',
+          this.shadeMultiplyTexture
+            ? `shadeMultiplyTextureColorSpace:${getTextureColorSpace(this.shadeMultiplyTexture)}`
+            : '',
+          this.rimMultiplyTexture ? `rimMultiplyTextureColorSpace:${getTextureColorSpace(this.rimMultiplyTexture)}` : '',
+        ].join(',');
+        this._dirty = false;
+      }
+      return this._customProgramCacheKey;
+    }
 
     this.onBeforeCompile = (shader) => {
       const threeRevision = parseInt(THREE.REVISION, 10);
@@ -571,6 +610,27 @@ export class MToonMaterial extends THREE.ShaderMaterial {
     this.uniformsNeedUpdate = true;
   }
 
+  private _generatedDefines = {
+      // Temporary compat against shader change @ Three.js r126
+      // See: #21205, #21307, #21299
+      THREE_VRM_THREE_REVISION: -1,
+      OUTLINE: false,
+      MTOON_USE_UV: false,
+      MTOON_UVS_VERTEX_ONLY: false,
+      V0_COMPAT_SHADE: false,
+      USE_SHADEMULTIPLYTEXTURE: false,
+      USE_SHADINGSHIFTTEXTURE: false,
+      USE_MATCAPTEXTURE: false,
+      USE_RIMMULTIPLYTEXTURE: false,
+      USE_OUTLINEWIDTHMULTIPLYTEXTURE: false,
+      USE_UVANIMATIONMASKTEXTURE: false,
+      IGNORE_VERTEX_COLOR: false,
+      DEBUG_NORMAL: false,
+      DEBUG_LITSHADERATE: false,
+      DEBUG_UV: false,
+      OUTLINE_WIDTH_SCREEN: false,
+  };
+
   /**
    * Returns a map object of preprocessor token and macro of the shader program.
    */
@@ -587,28 +647,26 @@ export class MToonMaterial extends THREE.ShaderMaterial {
       this.rimMultiplyTexture !== null ||
       this.uvAnimationMaskTexture !== null;
 
-    return {
-      // Temporary compat against shader change @ Three.js r126
-      // See: #21205, #21307, #21299
-      THREE_VRM_THREE_REVISION: threeRevision,
+    this._generatedDefines.THREE_VRM_THREE_REVISION = threeRevision;
 
-      OUTLINE: this._isOutline,
-      MTOON_USE_UV: useUvInVert || useUvInFrag, // we can't use `USE_UV` , it will be redefined in WebGLProgram.js
-      MTOON_UVS_VERTEX_ONLY: useUvInVert && !useUvInFrag,
-      V0_COMPAT_SHADE: this._v0CompatShade,
-      USE_SHADEMULTIPLYTEXTURE: this.shadeMultiplyTexture !== null,
-      USE_SHADINGSHIFTTEXTURE: this.shadingShiftTexture !== null,
-      USE_MATCAPTEXTURE: this.matcapTexture !== null,
-      USE_RIMMULTIPLYTEXTURE: this.rimMultiplyTexture !== null,
-      USE_OUTLINEWIDTHMULTIPLYTEXTURE: this._isOutline && this.outlineWidthMultiplyTexture !== null,
-      USE_UVANIMATIONMASKTEXTURE: this.uvAnimationMaskTexture !== null,
-      IGNORE_VERTEX_COLOR: this._ignoreVertexColor === true,
-      DEBUG_NORMAL: this._debugMode === 'normal',
-      DEBUG_LITSHADERATE: this._debugMode === 'litShadeRate',
-      DEBUG_UV: this._debugMode === 'uv',
-      OUTLINE_WIDTH_SCREEN:
-        this._isOutline && this._outlineWidthMode === MToonMaterialOutlineWidthMode.ScreenCoordinates,
-    };
+    this._generatedDefines.OUTLINE = this._isOutline;
+    this._generatedDefines.MTOON_USE_UV = useUvInVert || useUvInFrag; // we can't use `USE_UV` , it will be redefined in WebGLProgram.js
+    this._generatedDefines.MTOON_UVS_VERTEX_ONLY = useUvInVert && !useUvInFrag;
+    this._generatedDefines.V0_COMPAT_SHADE = this._v0CompatShade;
+    this._generatedDefines.USE_SHADEMULTIPLYTEXTURE = this.shadeMultiplyTexture !== null;
+    this._generatedDefines.USE_SHADINGSHIFTTEXTURE = this.shadingShiftTexture !== null;
+    this._generatedDefines.USE_MATCAPTEXTURE = this.matcapTexture !== null;
+    this._generatedDefines.USE_RIMMULTIPLYTEXTURE = this.rimMultiplyTexture !== null;
+    this._generatedDefines.USE_OUTLINEWIDTHMULTIPLYTEXTURE = this._isOutline && this.outlineWidthMultiplyTexture !== null;
+    this._generatedDefines.USE_UVANIMATIONMASKTEXTURE = this.uvAnimationMaskTexture !== null;
+    this._generatedDefines.IGNORE_VERTEX_COLOR = this._ignoreVertexColor === true;
+    this._generatedDefines.DEBUG_NORMAL = this._debugMode === 'normal';
+    this._generatedDefines.DEBUG_LITSHADERATE = this._debugMode === 'litShadeRate';
+    this._generatedDefines.DEBUG_UV = this._debugMode === 'uv';
+    this._generatedDefines.OUTLINE_WIDTH_SCREEN =
+      this._isOutline && this._outlineWidthMode === MToonMaterialOutlineWidthMode.ScreenCoordinates;
+
+    return this._generatedDefines;
   }
 
   private _updateTextureMatrix(src: THREE.IUniform<THREE.Texture | null>, dst: THREE.IUniform<THREE.Matrix3>): void {
