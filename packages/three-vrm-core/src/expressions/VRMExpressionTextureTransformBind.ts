@@ -122,7 +122,8 @@ export class VRMExpressionTextureTransformBind implements VRMExpressionBind {
   }
 
   public applyWeight(weight: number): void {
-    this._properties.forEach((property) => {
+    for(let i = 0; i < this._properties.length; i++) {
+      const property = this._properties[i];
       const target = (this.material as any)[property.name] as THREE.Texture;
       if (target === undefined) {
         return;
@@ -130,11 +131,12 @@ export class VRMExpressionTextureTransformBind implements VRMExpressionBind {
 
       target.offset.add(_v2.copy(property.deltaOffset).multiplyScalar(weight));
       target.repeat.add(_v2.copy(property.deltaScale).multiplyScalar(weight));
-    });
+    }
   }
 
   public clearAppliedWeight(): void {
-    this._properties.forEach((property) => {
+    for(let i = 0; i < this._properties.length; i++) {
+      const property = this._properties[i];
       const target = (this.material as any)[property.name] as THREE.Texture;
       if (target === undefined) {
         return;
@@ -142,6 +144,6 @@ export class VRMExpressionTextureTransformBind implements VRMExpressionBind {
 
       target.offset.copy(property.initialOffset);
       target.repeat.copy(property.initialScale);
-    });
+    }
   }
 }

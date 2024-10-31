@@ -110,7 +110,7 @@ export class VRMHumanoidRig extends VRMRig {
    * Update this humanoid rig.
    */
   public update(): void {
-    VRMHumanBoneList.forEach((boneName) => {
+    for(const boneName of VRMHumanBoneList) {
       const boneNode = this.original.getBoneNode(boneName);
 
       if (boneNode != null) {
@@ -134,6 +134,6 @@ export class VRMHumanoidRig extends VRMRig {
           boneNode.position.copy(localPosition);
         }
       }
-    });
+    }
   }
 }

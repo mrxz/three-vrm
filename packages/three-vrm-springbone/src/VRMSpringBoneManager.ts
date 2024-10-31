@@ -125,7 +125,7 @@ export class VRMSpringBoneManager {
         } else {
           // FIXME: Include non spring bone joints in the sequence to ensure matrix world is up-to-date
           //        in case of sparse spring bone chains.
-          console.warn('Sparse spring bone chain detected, updates might be incorrect');
+          //console.warn('Sparse spring bone chain detected, updates might be incorrect');
         }
       });
     }

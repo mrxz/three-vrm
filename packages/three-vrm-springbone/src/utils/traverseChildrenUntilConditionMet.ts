@@ -11,10 +11,11 @@ export function traverseChildrenUntilConditionMet(
   object: THREE.Object3D,
   callback: (object: THREE.Object3D) => boolean,
 ): void {
-  object.children.forEach((child) => {
+  for(let i = 0; i < object.children.length; i++) {
+    const child = object.children[i];
     const result = callback(child);
     if (!result) {
       traverseChildrenUntilConditionMet(child, callback);
     }
-  });
+  }
 }

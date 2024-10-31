@@ -138,13 +138,17 @@ export class VRMExpression extends THREE.Object3D {
       actualWeight = 0.0;
     }
 
-    this._binds.forEach((bind) => bind.applyWeight(actualWeight));
+    for(let i = 0; i < this._binds.length; i++) {
+      this._binds[i].applyWeight(actualWeight);
+    }
   }
 
   /**
    * Clear previously assigned blend shapes.
    */
   public clearAppliedWeight(): void {
-    this._binds.forEach((bind) => bind.clearAppliedWeight());
+    for(let i = 0; i < this._binds.length; i++) {
+      this._binds[i].clearAppliedWeight();
+    }
   }
 }

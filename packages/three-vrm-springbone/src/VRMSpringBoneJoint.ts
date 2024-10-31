@@ -317,8 +317,9 @@ export class VRMSpringBoneJoint {
    * @param tail The tail you want to process
    */
   private _collision(tail: THREE.Vector3): void {
-    this.colliderGroups.forEach((colliderGroup) => {
-      colliderGroup.colliders.forEach((collider) => {
+    for (let cg = 0; cg < this.colliderGroups.length; cg++) {
+      for (let c = 0; c < this.colliderGroups[cg].colliders.length; c++) {
+        const collider = this.colliderGroups[cg].colliders[c];
         const dist = collider.shape.calculateCollision(collider.parent!.matrixWorld, tail, this.settings.hitRadius, _v3A);
 
         if (dist < 0.0) {
@@ -328,8 +329,8 @@ export class VRMSpringBoneJoint {
           // normalize bone length
           tail.sub(_worldSpacePosition).normalize().multiplyScalar(this._worldSpaceBoneLength).add(_worldSpacePosition);
         }
-      });
-    });
+      }
+    }
   }
 
   /**

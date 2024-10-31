@@ -216,12 +216,13 @@ export class VRMExpressionManager {
     const weightMultipliers = this._calculateWeightMultipliers();
 
     // reset expression binds first
-    this._expressions.forEach((expression) => {
-      expression.clearAppliedWeight();
-    });
+    for(let i = 0; i < this._expressions.length; i++) {
+      this._expressions[i].clearAppliedWeight();
+    }
 
     // then apply binds
-    this._expressions.forEach((expression) => {
+    for(let i = 0; i < this._expressions.length; i++) {
+      const expression = this._expressions[i];
       let multiplier = 1.0;
       const name = expression.expressionName;
 
@@ -238,7 +239,7 @@ export class VRMExpressionManager {
       }
 
       expression.applyWeight({ multiplier });
-    });
+    }
   }
 
   /**
@@ -253,11 +254,12 @@ export class VRMExpressionManager {
     let lookAt = 1.0;
     let mouth = 1.0;
 
-    this._expressions.forEach((expression) => {
+    for(let i = 0; i < this._expressions.length; i++) {
+      const expression = this._expressions[i];
       blink -= expression.overrideBlinkAmount;
       lookAt -= expression.overrideLookAtAmount;
       mouth -= expression.overrideMouthAmount;
-    });
+    }
 
     blink = Math.max(0.0, blink);
     lookAt = Math.max(0.0, lookAt);

@@ -46,18 +46,20 @@ export class VRMExpressionMorphTargetBind implements VRMExpressionBind {
   }
 
   public applyWeight(weight: number): void {
-    this.primitives.forEach((mesh) => {
+    for(let i  = 0; i < this.primitives.length; i++) {
+      const mesh = this.primitives[i];
       if (mesh.morphTargetInfluences?.[this.index] != null) {
         mesh.morphTargetInfluences[this.index] += this.weight * weight;
       }
-    });
+    }
   }
 
   public clearAppliedWeight(): void {
-    this.primitives.forEach((mesh) => {
+    for(let i  = 0; i < this.primitives.length; i++) {
+      const mesh = this.primitives[i];
       if (mesh.morphTargetInfluences?.[this.index] != null) {
         mesh.morphTargetInfluences[this.index] = 0.0;
       }
-    });
+    }
   }
 }
