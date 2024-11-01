@@ -45,6 +45,10 @@ export class VRMSpringBoneManager {
 
   private _objectSpringBonesMap = new Map<THREE.Object3D, Set<VRMSpringBoneJoint>>();
 
+  constructor() {
+    this._releventChildrenUpdated = this._releventChildrenUpdated.bind(this);
+  }
+
   public addJoint(joint: VRMSpringBoneJoint): void {
     this._joints.add(joint);
 
@@ -163,16 +167,18 @@ export class VRMSpringBoneManager {
 
       // update children world matrices
       // it is required when the spring bone chain is sparse
-      traverseChildrenUntilConditionMet(springBone.bone, (object) => {
-        // if the object has attached springbone, halt the traversal
-        if ((this._objectSpringBonesMap.get(object)?.size ?? 0) > 0) {
-          return true;
-        }
-
-        // otherwise update its world matrix
-        object.updateWorldMatrix(false, false);
-        return false;
-      });
+      traverseChildrenUntilConditionMet(springBone.bone, this._releventChildrenUpdated);
     }
+  }
+
+  private _releventChildrenUpdated(object: THREE.Object3D) {
+    // if the object has attached springbone, halt the traversal
+    if ((this._objectSpringBonesMap.get(object)?.size ?? 0) > 0) {
+      return true;
+    }
+
+    // otherwise update its world matrix
+    object.updateWorldMatrix(false, false);
+    return false;
   }
 }

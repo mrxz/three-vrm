@@ -58,11 +58,12 @@ export class VRM extends VRMCore {
     }
 
     if (this.materials) {
-      this.materials.forEach((material: any) => {
+      for(let i = 0; i < this.materials.length; i++) {
+        const material = this.materials[i] as any;
         if (material.update) {
           material.update(delta);
         }
-      });
+      }
     }
   }
 }

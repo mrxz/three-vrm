@@ -121,17 +121,13 @@ export class VRMExpression extends THREE.Object3D {
   /**
    * Apply weight to every assigned blend shapes.
    * Should be called every frame.
+   * @param multiplier Multiplies a value to its weight to apply.
+   * Intended to be used for overriding an expression weight by another expression.
+   * See also: {@link overrideBlink}, {@link overrideLookAt}, {@link overrideMouth}
    */
-  public applyWeight(options?: {
-    /**
-     * Multiplies a value to its weight to apply.
-     * Intended to be used for overriding an expression weight by another expression.
-     * See also: {@link overrideBlink}, {@link overrideLookAt}, {@link overrideMouth}
-     */
-    multiplier?: number;
-  }): void {
+  public applyWeight(multiplier?: number): void {
     let actualWeight = this.outputWeight;
-    actualWeight *= options?.multiplier ?? 1.0;
+    actualWeight *= multiplier ?? 1.0;
 
     // if the expression is binary, the override value must be also treated as binary
     if (this.isBinary && actualWeight < 1.0) {

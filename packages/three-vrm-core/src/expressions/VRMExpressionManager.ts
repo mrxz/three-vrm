@@ -238,18 +238,15 @@ export class VRMExpressionManager {
         multiplier *= weightMultipliers.mouth;
       }
 
-      expression.applyWeight({ multiplier });
+      expression.applyWeight(multiplier);
     }
   }
 
+  private _weightMultipliers = {blink: 1.0, lookAt: 1.0, mouth: 1.0};
   /**
    * Calculate sum of override amounts to see how much we should multiply weights of certain expressions.
    */
-  private _calculateWeightMultipliers(): {
-    blink: number;
-    lookAt: number;
-    mouth: number;
-  } {
+  private _calculateWeightMultipliers(): typeof this._weightMultipliers {
     let blink = 1.0;
     let lookAt = 1.0;
     let mouth = 1.0;
@@ -265,6 +262,9 @@ export class VRMExpressionManager {
     lookAt = Math.max(0.0, lookAt);
     mouth = Math.max(0.0, mouth);
 
-    return { blink, lookAt, mouth };
+    this._weightMultipliers.blink = blink;
+    this._weightMultipliers.lookAt = lookAt;
+    this._weightMultipliers.mouth = mouth;
+    return this._weightMultipliers;
   }
 }
