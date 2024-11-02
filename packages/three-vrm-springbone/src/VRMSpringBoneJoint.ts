@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { mat4InvertCompat } from './utils/mat4InvertCompat.js';
 import { Matrix4InverseCache } from './utils/Matrix4InverseCache.js';
 import type { VRMSpringBoneColliderGroup } from './VRMSpringBoneColliderGroup.js';
 import type { VRMSpringBoneJointSettings } from './VRMSpringBoneJointSettings.js';
@@ -13,7 +12,6 @@ const IDENTITY_MATRIX4 = new THREE.Matrix4();
 // 計算中の一時保存用変数（一度インスタンスを作ったらあとは使い回す）
 const _v3A = new THREE.Vector3();
 const _v3B = new THREE.Vector3();
-const _v3C = new THREE.Vector3();
 
 /**
  * A temporary variable which is used in `update`
@@ -23,16 +21,9 @@ const _worldSpacePosition = new THREE.Vector3();
 /**
  * A temporary variable which is used in `update`
  */
-const _centerSpacePosition = new THREE.Vector3();
-
-/**
- * A temporary variable which is used in `update`
- */
 const _nextTail = new THREE.Vector3();
 
-const _quatA = new THREE.Quaternion();
 const _matA = new THREE.Matrix4();
-const _matB = new THREE.Matrix4();
 
 /**
  * A class represents a single joint of a spring bone.

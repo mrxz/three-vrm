@@ -119,6 +119,8 @@ export class VRMLoaderPlugin implements GLTFLoaderPlugin {
       });
 
       gltf.userData.vrm = vrm;
+      // Mark avatar root
+      gltf.scene.userData.isVRM = true;
     }
   }
 }

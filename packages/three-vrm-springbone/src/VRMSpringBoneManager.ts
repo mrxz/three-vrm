@@ -9,6 +9,7 @@ export class VRMSpringBoneManager {
   private _joints = new Set<VRMSpringBoneJoint>();
   private _sortedJoints: Array<VRMSpringBoneJoint> = [];
   private _hasWarnedCircularDependency = false;
+  private _globalAncestors: Array<THREE.Object3D> = [];
 
   public get joints(): Set<VRMSpringBoneJoint> {
     return this._joints;
@@ -94,17 +95,20 @@ export class VRMSpringBoneManager {
     const springBoneOrder: Array<VRMSpringBoneJoint> = [];
     const springBonesTried = new Set<VRMSpringBoneJoint>();
     const springBonesDone = new Set<VRMSpringBoneJoint>();
+    const globalAncestors: Array<THREE.Object3D> = [];
     for (const springBone of this._joints) {
-      this._insertJointSort(springBone, springBonesTried, springBonesDone, springBoneOrder)
+      this._insertJointSort(springBone, springBonesTried, springBonesDone, springBoneOrder, globalAncestors)
     }
     this._sortedJoints = springBoneOrder;
+    this._globalAncestors = globalAncestors;
   }
 
   private _insertJointSort(
     springBone: VRMSpringBoneJoint,
     springBonesTried: Set<VRMSpringBoneJoint>,
     springBonesDone: Set<VRMSpringBoneJoint>,
-    springBoneOrder: Array<VRMSpringBoneJoint>
+    springBoneOrder: Array<VRMSpringBoneJoint>,
+    globalAncestors: Array<THREE.Object3D>
   ) {
     if (springBonesDone.has(springBone)) {
       return;
@@ -120,16 +124,28 @@ export class VRMSpringBoneManager {
 
     const depObjects = springBone.dependencies;
     for (const depObject of depObjects) {
+      let encounteredAvatarRoot = false;
+      let encounteredSpringBone = false;
       traverseAncestorsFromRoot(depObject, (depObjectAncestor) => {
         const objectSet = this._objectSpringBonesMap.get(depObjectAncestor);
         if (objectSet) {
           for (const depSpringBone of objectSet) {
-            this._insertJointSort(depSpringBone, springBonesTried, springBonesDone, springBoneOrder);
+            encounteredSpringBone = true;
+            this._insertJointSort(depSpringBone, springBonesTried, springBonesDone, springBoneOrder, globalAncestors);
           }
-        } else {
-          // FIXME: Include non spring bone joints in the sequence to ensure matrix world is up-to-date
-          //        in case of sparse spring bone chains.
-          //console.warn('Sparse spring bone chain detected, updates might be incorrect');
+        } else if(!encounteredSpringBone) {
+          // This object is an ancestor of a spring bone, but is NOT a sparse node in between spring bones.
+          // Check if it's part of the avatar (between avatar root and any spring bone).
+          if(encounteredAvatarRoot) {
+            if(!globalAncestors.includes(depObjectAncestor)) {
+              globalAncestors.push(depObjectAncestor);
+            }
+          } else {
+            // Check if this is the avatar root
+            if(depObjectAncestor.userData.isVRM) {
+              encounteredAvatarRoot = true;
+            }
+          }
         }
       });
     }
@@ -158,6 +174,10 @@ export class VRMSpringBoneManager {
   }
 
   public update(delta: number): void {
+    for (let i = 0; i < this._globalAncestors.length; i++) {
+      this._globalAncestors[i].updateWorldMatrix(false, false);
+    }
+
     for (let i = 0; i < this._sortedJoints.length; i++) {
       // update the springbone
       const springBone = this._sortedJoints[i];
