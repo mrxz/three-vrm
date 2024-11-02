@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { VRM } from '../VRM.js';
+import { VRMSpringBoneJoint } from 'packages/three-vrm-springbone/types/VRMSpringBoneJoint.js';
 
 /**
  * Traverse the given object and .
@@ -12,7 +14,8 @@ import * as THREE from 'three';
  * @param root Root object that will be traversed
  */
 export function deduplicateSkeletons(
-  root: THREE.Object3D
+  root: THREE.Object3D,
+  vrm: VRM
 ): void {
   const skeletons: Array<THREE.Skeleton> = [];
   const skinnedMeshesPerSkeleton: WeakMap<THREE.Skeleton, Array<THREE.SkinnedMesh>> = new WeakMap();
@@ -35,6 +38,7 @@ export function deduplicateSkeletons(
   });
 
   // Remove any unnecessary joints
+  const allBones = new Set<THREE.Bone>();
   for(const skeleton of skeletons) {
     const bones: THREE.Bone[] = []; // new list of bone
     const boneInverses: THREE.Matrix4[] = []; // new list of boneInverse
@@ -53,6 +57,8 @@ export function deduplicateSkeletons(
                 boneIndexMap[index] = bones.length;
                 bones.push(mesh.skeleton.bones[index]);
                 boneInverses.push(mesh.skeleton.boneInverses[index]);
+
+                allBones.add(mesh.skeleton.bones[index]);
             }
 
             array[i] = boneIndexMap[index];
@@ -69,4 +75,45 @@ export function deduplicateSkeletons(
         mesh.bind(newSkeleton, new THREE.Matrix4());
     }
   }
+
+  // Determine useless nodes
+  const markedForDeletion: THREE.Object3D[] = [];
+  root.traverse(c => {
+    if(!isRelevant(c, allBones)) {
+      markedForDeletion.push(c);
+    }
+  });
+  markedForDeletion.forEach(c => c.removeFromParent());
+  // Cleanup corresponding VRM constructs
+  const jointsMarkedForDeletion: VRMSpringBoneJoint[] = [];
+  for(const joint of vrm.springBoneManager?.joints ?? []) {
+    if(joint.bone.parent === null) {
+      jointsMarkedForDeletion.push(joint);
+    }
+  }
+  jointsMarkedForDeletion.forEach(joint => vrm.springBoneManager?.deleteJoint(joint));
+}
+
+function isRelevant(node: THREE.Object3D, bones: Set<THREE.Bone>): boolean {
+  if((node as THREE.Mesh).isMesh) {
+    return true;
+  }
+
+  if((node as THREE.Bone).isBone) {
+    if (bones.has(node as THREE.Bone)) {
+      return true;
+    }
+  }
+
+  // VRMSpringBoneCollider
+  if('shape' in node) {
+    return true;
+  }
+
+  const relevantChildren = node.children.some(child => isRelevant(child, bones));
+  if(relevantChildren) {
+    return true;
+  }
+
+  return false;
 }
