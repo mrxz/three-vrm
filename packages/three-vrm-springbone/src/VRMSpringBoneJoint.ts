@@ -247,36 +247,30 @@ export class VRMSpringBoneJoint {
     // Update the _worldSpaceBoneLength
     this._calcWorldSpaceBoneLength();
 
-    // Get bone position in center space
-    _worldSpacePosition.setFromMatrixPosition(this.bone.matrixWorld);
-    const matrixWorldToCenter = this._getMatrixWorldToCenter();
-    _centerSpacePosition.copy(_worldSpacePosition).applyMatrix4(matrixWorldToCenter);
-
-    // Get parent matrix in center space
-    const centerSpaceParentMatrix = _matB.multiplyMatrices(matrixWorldToCenter, this._parentMatrixWorld);
-
-    // Get boneAxis in center space
-    const centerSpaceBoneAxis = _v3B
+    // Get boneAxis in world space
+    const worldSpaceBoneAxis = _v3B
       .copy(this._boneAxis)
       .transformDirection(this._initialLocalMatrix)
-      .transformDirection(centerSpaceParentMatrix);
-
-    // gravity in center space
-    const centerSpaceGravity = _v3C.copy(this.settings.gravityDir).transformDirection(matrixWorldToCenter);
+      .transformDirection(this._parentMatrixWorld);
 
     // verlet積分で次の位置を計算
     _nextTail
+      // Determine inertia in center space
       .copy(this._currentTail)
       .add(
         _v3A
           .subVectors(this._currentTail, this._prevTail)
           .multiplyScalar(1 - this.settings.dragForce),
       ) // 前フレームの移動を継続する(減衰もあるよ)
-      .addScaledVector(centerSpaceBoneAxis, this.settings.stiffness * delta) // 親の回転による子ボーンの移動目標
-      .addScaledVector(centerSpaceGravity, this.settings.gravityPower * delta) // 外力による移動量
-      .applyMatrix4(this._getMatrixCenterToWorld()); // tailをworld spaceに戻す
+      // Convert center space to world space
+      .applyMatrix4(this._getMatrixCenterToWorld()) // tailをworld spaceに戻す
+      // Apply stiffness and gravity in world space
+      // FIXME: In case of a center that has a scale applied, the following forces would be incorrectly scaled
+      .addScaledVector(worldSpaceBoneAxis, this.settings.stiffness * delta) // 親の回転による子ボーンの移動目標
+      .addScaledVector(this.settings.gravityDir, this.settings.gravityPower * delta); // 外力による移動量
 
     // normalize bone length
+    _worldSpacePosition.setFromMatrixPosition(this.bone.matrixWorld);
     _nextTail.sub(_worldSpacePosition).normalize().multiplyScalar(this._worldSpaceBoneLength).add(_worldSpacePosition);
 
     // Collisionで移動
@@ -284,7 +278,7 @@ export class VRMSpringBoneJoint {
 
     // update prevTail and currentTail
     this._prevTail.copy(this._currentTail);
-    this._currentTail.copy(_nextTail).applyMatrix4(matrixWorldToCenter);
+    this._currentTail.copy(_nextTail).applyMatrix4(this._getMatrixWorldToCenter());
 
     // Apply rotation, convert vector3 thing into actual quaternion
     // Original UniVRM is doing center unit calculus at here but we're gonna do this on local unit
