@@ -168,7 +168,7 @@ export class VRMFirstPerson {
     return count;
   }
 
-  private _createErasedMesh(src: THREE.SkinnedMesh, erasingBonesIndex: number[]): THREE.SkinnedMesh {
+  private _createErasedMesh(src: THREE.SkinnedMesh, erasingBonesIndex: number[]): THREE.SkinnedMesh|null {
     const dst = new THREE.SkinnedMesh(src.geometry.clone(), src.material);
     dst.name = `${src.name}(erase)`;
     dst.frustumCulled = src.frustumCulled;
@@ -207,6 +207,12 @@ export class VRMFirstPerson {
     const oldTriangles = Array.from(index.array);
 
     const count = this._excludeTriangles(oldTriangles, skinWeight, skinIndex, erasingBonesIndex);
+    // Early-out in case no triangles remain, this can happen when the avatar consists of various meshes
+    // and some of these belong entirely to the face/head which is being removed for 1st person views.
+    if(count === 0) {
+      return null;
+    }
+
     const newTriangle: number[] = [];
     for (let i = 0; i < count; i++) {
       newTriangle[i] = oldTriangles[i];
@@ -236,7 +242,9 @@ export class VRMFirstPerson {
     }
     mesh.layers.set(this._thirdPersonOnlyLayer);
     const newMesh = this._createErasedMesh(mesh, eraseBoneIndexes);
-    parent.add(newMesh);
+    if(newMesh) {
+      parent.add(newMesh);
+    }
   }
 
   private _createHeadlessModel(node: THREE.Object3D): void {
