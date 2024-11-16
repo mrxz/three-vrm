@@ -1,5 +1,7 @@
 import * as THREE from 'three';
-import type { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape.js';
+import { VRMSpringBoneColliderShape } from './VRMSpringBoneColliderShape.js';
+import { VRMSpringBoneColliderShapeSphere } from './VRMSpringBoneColliderShapeSphere.js';
+import { VRMSpringBoneColliderShapeCapsule } from './VRMSpringBoneColliderShapeCapsule.js';
 
 /**
  * Represents a collider of a VRM.
@@ -14,7 +16,16 @@ export class VRMSpringBoneCollider extends THREE.Object3D {
     super();
 
     this.shape = shape;
+    if (this.shape instanceof VRMSpringBoneColliderShapeSphere) {
+      this.position.copy(this.shape.offset);
+    } else if (this.shape instanceof VRMSpringBoneColliderShapeCapsule) {
+      this.position.copy(this.shape.offset);
+    } else {
+      throw new Error('Unsupported shape');
+    }
+
+    this.updateMatrix();
     this.matrixAutoUpdate = false;
-    this.matrixWorldAutoUpdate = false;
+    //this.matrixWorldAutoUpdate = false;
   }
 }

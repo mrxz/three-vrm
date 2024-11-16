@@ -19,6 +19,8 @@ export class VRMSpringBoneColliderShapeCapsule extends VRMSpringBoneColliderShap
    */
   public tail: THREE.Vector3;
 
+  public headToTail: THREE.Vector3;
+
   /**
    * The radius of the capsule.
    */
@@ -34,6 +36,7 @@ export class VRMSpringBoneColliderShapeCapsule extends VRMSpringBoneColliderShap
 
     this.offset = params?.offset ?? new THREE.Vector3(0.0, 0.0, 0.0);
     this.tail = params?.tail ?? new THREE.Vector3(0.0, 0.0, 0.0);
+    this.headToTail = this.tail.clone().sub(this.offset);
     this.radius = params?.radius ?? 0.0;
     this.inside = params?.inside ?? false;
   }
@@ -44,9 +47,8 @@ export class VRMSpringBoneColliderShapeCapsule extends VRMSpringBoneColliderShap
     objectRadius: number,
     target: THREE.Vector3,
   ): number {
-    _v3A.copy(this.offset).applyMatrix4(colliderMatrix); // transformed head
-    _v3B.copy(this.tail).applyMatrix4(colliderMatrix); // transformed tail
-    _v3B.sub(_v3A); // from head to tail
+    _v3A.setFromMatrixPosition(colliderMatrix); // transformed head
+    _v3B.copy(this.headToTail).transformDirection(colliderMatrix); // transformed tail
     const lengthSqCapsule = _v3B.lengthSq();
 
     target.copy(objectPosition).sub(_v3A); // from head to object

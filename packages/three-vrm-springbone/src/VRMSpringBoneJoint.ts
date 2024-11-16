@@ -77,7 +77,7 @@ export class VRMSpringBoneJoint {
   /**
    * Set of dependencies
    */
-  private _dependencies: THREE.Object3D[]|null = null;
+  private _dependencies: THREE.Object3D[] | null = null;
   public get dependencies(): THREE.Object3D[] {
     if (this._dependencies) {
       return this._dependencies;
@@ -248,11 +248,7 @@ export class VRMSpringBoneJoint {
     _nextTail
       // Determine inertia in center space
       .copy(this._currentTail)
-      .add(
-        _v3A
-          .subVectors(this._currentTail, this._prevTail)
-          .multiplyScalar(1 - this.settings.dragForce),
-      ) // 前フレームの移動を継続する(減衰もあるよ)
+      .add(_v3A.subVectors(this._currentTail, this._prevTail).multiplyScalar(1 - this.settings.dragForce)) // 前フレームの移動を継続する(減衰もあるよ)
       // Convert center space to world space
       .applyMatrix4(this._getMatrixCenterToWorld()) // tailをworld spaceに戻す
       // Apply stiffness and gravity in world space
@@ -276,10 +272,9 @@ export class VRMSpringBoneJoint {
     const worldSpaceInitialMatrixInv = _matA
       .multiplyMatrices(this._parentMatrixWorld, this._initialLocalMatrix)
       .invert();
-    this.bone.quaternion.setFromUnitVectors(
-      this._boneAxis,
-      _v3A.copy(_nextTail).applyMatrix4(worldSpaceInitialMatrixInv).normalize(),
-    ).premultiply(this._initialLocalRotation);
+    this.bone.quaternion
+      .setFromUnitVectors(this._boneAxis, _v3A.copy(_nextTail).applyMatrix4(worldSpaceInitialMatrixInv).normalize())
+      .premultiply(this._initialLocalRotation);
 
     // We need to update its matrixWorld manually, since we tweaked the bone by our hand
     this.bone.updateMatrix();
@@ -295,7 +290,7 @@ export class VRMSpringBoneJoint {
     for (let cg = 0; cg < this.colliderGroups.length; cg++) {
       for (let c = 0; c < this.colliderGroups[cg].colliders.length; c++) {
         const collider = this.colliderGroups[cg].colliders[c];
-        const dist = collider.shape.calculateCollision(collider.parent!.matrixWorld, tail, this.settings.hitRadius, _v3A);
+        const dist = collider.shape.calculateCollision(collider.matrixWorld, tail, this.settings.hitRadius, _v3A);
 
         if (dist < 0.0) {
           // hit
@@ -313,16 +308,8 @@ export class VRMSpringBoneJoint {
    * Intended to be used in {@link update}.
    */
   private _calcWorldSpaceBoneLength(): void {
-    _v3A.setFromMatrixPosition(this.bone.matrixWorld); // get world position of this.bone
-
-    if (this.child) {
-      _v3B.setFromMatrixPosition(this.child.matrixWorld); // get world position of this.child
-    } else {
-      _v3B.copy(this._initialLocalChildPosition);
-      _v3B.applyMatrix4(this.bone.matrixWorld);
-    }
-
-    this._worldSpaceBoneLength = _v3A.distanceTo(_v3B);
+    _v3A.setFromMatrixScale(this.bone.matrixWorld); // get world scale of this bone
+    this._worldSpaceBoneLength = this._initialLocalChildPosition.length() * _v3A.x; // Assume uniform scaling
   }
 
   /**
