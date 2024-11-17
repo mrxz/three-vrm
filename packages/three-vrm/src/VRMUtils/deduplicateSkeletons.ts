@@ -44,10 +44,16 @@ export function deduplicateSkeletons(root: THREE.Object3D, vrm: VRM): void {
     for (const mesh of skinnedMeshesPerSkeleton.get(skeleton)!) {
       const geometry = mesh.geometry;
       const attribute = geometry.getAttribute('skinIndex') as THREE.BufferAttribute;
+      const weightAttribute = geometry.getAttribute('skinWeight') as THREE.BufferAttribute;
 
       const array = attribute.array;
       for (let i = 0; i < array.length; i++) {
         const index = array[i];
+        const weight = weightAttribute.array[i];
+        if (weight === 0) {
+          array[i] = 0;
+          continue;
+        }
 
         // new skinIndex buffer
         if (boneIndexMap[index] == null) {
@@ -80,7 +86,7 @@ export function deduplicateSkeletons(root: THREE.Object3D, vrm: VRM): void {
       markedForDeletion.push(c);
     }
   });
-  //markedForDeletion.forEach(c => c.removeFromParent());
+  markedForDeletion.forEach((c) => c.removeFromParent());
   // Cleanup corresponding VRM constructs
   const jointsMarkedForDeletion: VRMSpringBoneJoint[] = [];
   for (const joint of vrm.springBoneManager?.joints ?? []) {
@@ -97,9 +103,14 @@ function isRelevant(node: THREE.Object3D, bones: Set<THREE.Bone>): boolean {
   }
 
   if ((node as THREE.Bone).isBone) {
-    if (bones.has(node as THREE.Bone)) {
+    if (bones.has(node as THREE.Bone) || (node.parent && bones.has(node.parent as THREE.Bone))) {
       return true;
     }
+  }
+
+  // VRMExpressions
+  if (node.type === 'VRMExpressions') {
+    return true;
   }
 
   // VRMSpringBoneCollider
