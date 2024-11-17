@@ -297,7 +297,9 @@ export class VRMSpringBoneJoint {
           tail.addScaledVector(_v3A, -dist);
 
           // normalize bone length
-          tail.sub(_worldSpacePosition).normalize().multiplyScalar(this._worldSpaceBoneLength).add(_worldSpacePosition);
+          tail.sub(_worldSpacePosition);
+          const length = tail.length();
+          tail.multiplyScalar(this._worldSpaceBoneLength / length).add(_worldSpacePosition);
         }
       }
     }

@@ -35,17 +35,27 @@ export class VRMSpringBoneColliderShapeSphere extends VRMSpringBoneColliderShape
     objectRadius: number,
     target: THREE.Vector3,
   ): number {
-    target.setFromMatrixPosition(colliderMatrix); // transformed offset
-    target.negate().add(objectPosition); // a vector from collider center to object position
+    target.x = objectPosition.x - colliderMatrix.elements[12];
+    target.y = objectPosition.y - colliderMatrix.elements[13];
+    target.z = objectPosition.z - colliderMatrix.elements[14];
 
+    const length = target.length();
+    const distance = length - objectRadius - this.radius;
+
+    if (distance < 0) {
+      target.multiplyScalar(1 / length); // convert the delta to the direction
+    }
+
+    /*
+    const length = target.length();
     const distance = this.inside
-      ? this.radius - objectRadius - target.length()
-      : target.length() - objectRadius - this.radius;
+      ? this.radius - objectRadius - length
+      : length - objectRadius - this.radius;
 
-    target.normalize(); // convert the delta to the direction
+    target.multiplyScalar(1 / length); // convert the delta to the direction
     if (this.inside) {
       target.negate(); // if inside, reverse the direction
-    }
+    }*/
 
     return distance;
   }
