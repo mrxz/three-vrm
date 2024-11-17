@@ -405,6 +405,7 @@ export class MToonMaterial extends THREE.ShaderMaterial {
 
   private _customProgramCacheKey = '';
   private _dirty = true;
+  private _computedVersion = -1;
 
   constructor(parameters: MToonMaterialParameters = {}) {
     super({ vertexShader, fragmentShader });
@@ -477,19 +478,22 @@ export class MToonMaterial extends THREE.ShaderMaterial {
     this.customProgramCacheKey = () => {
       // FIXME: Verify that needsUpdate flag can be used here.
       //        It might get reset before customProgramCacheKey is called.
-      if(this._dirty || this.needsUpdate) {
+      if (this._dirty || this.version !== this._computedVersion) {
         this._customProgramCacheKey = [
           ...Object.entries(this._generateDefines()).map(([token, macro]) => `${token}:${macro}`),
           this.matcapTexture ? `matcapTextureColorSpace:${getTextureColorSpace(this.matcapTexture)}` : '',
           this.shadeMultiplyTexture
             ? `shadeMultiplyTextureColorSpace:${getTextureColorSpace(this.shadeMultiplyTexture)}`
             : '',
-          this.rimMultiplyTexture ? `rimMultiplyTextureColorSpace:${getTextureColorSpace(this.rimMultiplyTexture)}` : '',
+          this.rimMultiplyTexture
+            ? `rimMultiplyTextureColorSpace:${getTextureColorSpace(this.rimMultiplyTexture)}`
+            : '',
         ].join(',');
         this._dirty = false;
+        this._computedVersion = this.version;
       }
       return this._customProgramCacheKey;
-    }
+    };
 
     this.onBeforeCompile = (shader) => {
       const threeRevision = parseInt(THREE.REVISION, 10);
@@ -611,24 +615,24 @@ export class MToonMaterial extends THREE.ShaderMaterial {
   }
 
   private _generatedDefines = {
-      // Temporary compat against shader change @ Three.js r126
-      // See: #21205, #21307, #21299
-      THREE_VRM_THREE_REVISION: -1,
-      OUTLINE: false,
-      MTOON_USE_UV: false,
-      MTOON_UVS_VERTEX_ONLY: false,
-      V0_COMPAT_SHADE: false,
-      USE_SHADEMULTIPLYTEXTURE: false,
-      USE_SHADINGSHIFTTEXTURE: false,
-      USE_MATCAPTEXTURE: false,
-      USE_RIMMULTIPLYTEXTURE: false,
-      USE_OUTLINEWIDTHMULTIPLYTEXTURE: false,
-      USE_UVANIMATIONMASKTEXTURE: false,
-      IGNORE_VERTEX_COLOR: false,
-      DEBUG_NORMAL: false,
-      DEBUG_LITSHADERATE: false,
-      DEBUG_UV: false,
-      OUTLINE_WIDTH_SCREEN: false,
+    // Temporary compat against shader change @ Three.js r126
+    // See: #21205, #21307, #21299
+    THREE_VRM_THREE_REVISION: -1,
+    OUTLINE: false,
+    MTOON_USE_UV: false,
+    MTOON_UVS_VERTEX_ONLY: false,
+    V0_COMPAT_SHADE: false,
+    USE_SHADEMULTIPLYTEXTURE: false,
+    USE_SHADINGSHIFTTEXTURE: false,
+    USE_MATCAPTEXTURE: false,
+    USE_RIMMULTIPLYTEXTURE: false,
+    USE_OUTLINEWIDTHMULTIPLYTEXTURE: false,
+    USE_UVANIMATIONMASKTEXTURE: false,
+    IGNORE_VERTEX_COLOR: false,
+    DEBUG_NORMAL: false,
+    DEBUG_LITSHADERATE: false,
+    DEBUG_UV: false,
+    OUTLINE_WIDTH_SCREEN: false,
   };
 
   /**
@@ -657,7 +661,8 @@ export class MToonMaterial extends THREE.ShaderMaterial {
     this._generatedDefines.USE_SHADINGSHIFTTEXTURE = this.shadingShiftTexture !== null;
     this._generatedDefines.USE_MATCAPTEXTURE = this.matcapTexture !== null;
     this._generatedDefines.USE_RIMMULTIPLYTEXTURE = this.rimMultiplyTexture !== null;
-    this._generatedDefines.USE_OUTLINEWIDTHMULTIPLYTEXTURE = this._isOutline && this.outlineWidthMultiplyTexture !== null;
+    this._generatedDefines.USE_OUTLINEWIDTHMULTIPLYTEXTURE =
+      this._isOutline && this.outlineWidthMultiplyTexture !== null;
     this._generatedDefines.USE_UVANIMATIONMASKTEXTURE = this.uvAnimationMaskTexture !== null;
     this._generatedDefines.IGNORE_VERTEX_COLOR = this._ignoreVertexColor === true;
     this._generatedDefines.DEBUG_NORMAL = this._debugMode === 'normal';
