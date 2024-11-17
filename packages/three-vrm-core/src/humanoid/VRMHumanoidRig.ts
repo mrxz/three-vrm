@@ -110,7 +110,8 @@ export class VRMHumanoidRig extends VRMRig {
    * Update this humanoid rig.
    */
   public update(): void {
-    for(const boneName of VRMHumanBoneList) {
+    for (let i = 0; i < VRMHumanBoneList.length; i++) {
+      const boneName = VRMHumanBoneList[i];
       const boneNode = this.original.getBoneNode(boneName);
 
       if (boneNode != null) {
