@@ -3,7 +3,7 @@ import type * as V1VRMSchema from '@pixiv/types-vrmc-vrm-1.0';
 import * as THREE from 'three';
 import { GLTF, GLTFLoaderPlugin, GLTFParser } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { gltfExtractPrimitivesFromNode } from '../utils/gltfExtractPrimitivesFromNode.js';
-import { VRMExpression } from './VRMExpression.js';
+import { VRMExpression, VRMExpressions } from './VRMExpression.js';
 import { VRMExpressionManager } from './VRMExpressionManager.js';
 import { v0ExpressionMaterialColorMap } from './VRMExpressionMaterialColorType.js';
 import { VRMExpressionMaterialColorBind } from './VRMExpressionMaterialColorBind.js';
@@ -137,11 +137,14 @@ export class VRMExpressionLoaderPlugin implements GLTFLoaderPlugin {
     // prepare manager
     const manager = new VRMExpressionManager();
 
+    const expressions = manager.expressionsObject3D;
+    gltf.scene.add(expressions);
+
     // load expressions
     await Promise.all(
       Array.from(nameSchemaExpressionMap.entries()).map(async ([name, schemaExpression]) => {
         const expression = new VRMExpression(name);
-        gltf.scene.add(expression);
+        expressions.expressions[name] = expression;
 
         expression.isBinary = schemaExpression.isBinary ?? false;
         expression.overrideBlink = schemaExpression.overrideBlink ?? 'none';
@@ -255,6 +258,9 @@ export class VRMExpressionLoaderPlugin implements GLTFLoaderPlugin {
 
     const blendShapeNameSet = new Set<string>();
 
+    const expressions = manager.expressionsObject3D;
+    gltf.scene.add(expressions);
+
     await Promise.all(
       schemaBlendShapeGroups.map(async (schemaGroup) => {
         const v0PresetName = schemaGroup.presetName;
@@ -278,7 +284,7 @@ export class VRMExpressionLoaderPlugin implements GLTFLoaderPlugin {
         blendShapeNameSet.add(name);
 
         const expression = new VRMExpression(name);
-        gltf.scene.add(expression);
+        expressions.expressions[name] = expression;
 
         expression.isBinary = schemaGroup.isBinary ?? false;
         // v0 doesn't have ignore properties

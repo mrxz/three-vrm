@@ -3,9 +3,7 @@ import { VRMExpressionBind } from './VRMExpressionBind.js';
 import type { VRMExpressionOverrideType } from './VRMExpressionOverrideType.js';
 import type { VRMExpressionManager } from './VRMExpressionManager.js';
 
-// animationMixer の監視対象は、Scene の中に入っている必要がある。
-// そのため、表示オブジェクトではないけれど、Object3D を継承して Scene に投入できるようにする。
-export class VRMExpression extends THREE.Object3D {
+export class VRMExpression {
   /**
    * Name of this expression.
    * Distinguished with `name` since `name` will be conflicted with Object3D.
@@ -42,8 +40,6 @@ export class VRMExpression extends THREE.Object3D {
   public overrideMouth: VRMExpressionOverrideType = 'none';
 
   private _binds: VRMExpressionBind[] = [];
-
-  override readonly type: string | 'VRMExpression';
 
   /**
    * A value represents how much it should override blink expressions.
@@ -99,19 +95,7 @@ export class VRMExpression extends THREE.Object3D {
   }
 
   constructor(expressionName: string) {
-    super();
-
-    this.name = `VRMExpression_${expressionName}`;
     this.expressionName = expressionName;
-
-    // traverse 時の救済手段として Object3D ではないことを明示しておく
-    this.type = 'VRMExpression';
-
-    // 表示目的のオブジェクトではないので、負荷軽減のために visible を false にしておく。
-    // これにより、このインスタンスに対する毎フレームの matrix 自動計算を省略できる。
-    this.visible = false;
-    this.matrixWorldAutoUpdate = false;
-    this.matrixAutoUpdate = false;
   }
 
   public addBind(bind: VRMExpressionBind): void {
@@ -134,7 +118,7 @@ export class VRMExpression extends THREE.Object3D {
       actualWeight = 0.0;
     }
 
-    for(let i = 0; i < this._binds.length; i++) {
+    for (let i = 0; i < this._binds.length; i++) {
       this._binds[i].applyWeight(actualWeight);
     }
   }
@@ -143,8 +127,22 @@ export class VRMExpression extends THREE.Object3D {
    * Clear previously assigned blend shapes.
    */
   public clearAppliedWeight(): void {
-    for(let i = 0; i < this._binds.length; i++) {
+    for (let i = 0; i < this._binds.length; i++) {
       this._binds[i].clearAppliedWeight();
     }
+  }
+}
+
+// animationMixer の監視対象は、Scene の中に入っている必要がある。
+// そのため、表示オブジェクトではないけれど、Object3D を継承して Scene に投入できるようにする。
+export class VRMExpressions extends THREE.Object3D {
+  override readonly type: string | 'VRMExpressions';
+
+  public expressions: Record<string, VRMExpression> = {};
+
+  constructor() {
+    super();
+    this.name = 'VRMExpressions';
+    this.type = 'VRMExpressions';
   }
 }

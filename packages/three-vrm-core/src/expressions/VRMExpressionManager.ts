@@ -1,6 +1,6 @@
 import { VRMExpressionPresetName } from './VRMExpressionPresetName.js';
 import { saturate } from '../utils/saturate.js';
-import type { VRMExpression } from './VRMExpression.js';
+import { VRMExpression, VRMExpressions } from './VRMExpression.js';
 
 export class VRMExpressionManager {
   /**
@@ -18,13 +18,19 @@ export class VRMExpressionManager {
    */
   public mouthExpressionNames = ['aa', 'ee', 'ih', 'oh', 'ou'];
 
+  private _expressions: VRMExpressions = new VRMExpressions();
+  private _expressionList: VRMExpression[] = [];
+
+  public get expressionsObject3D(): VRMExpressions {
+    return this._expressions;
+  }
+
   /**
    * A set of {@link VRMExpression}.
    * When you want to register expressions, use {@link registerExpression}
    */
-  private _expressions: VRMExpression[] = [];
   public get expressions(): VRMExpression[] {
-    return this._expressions.concat();
+    return this._expressionList;
   }
 
   /**
@@ -83,13 +89,13 @@ export class VRMExpressionManager {
    */
   public copy(source: VRMExpressionManager): this {
     // first unregister all the expression it has
-    const expressions = this._expressions.concat();
+    const expressions = this.expressions;
     expressions.forEach((expression) => {
       this.unregisterExpression(expression);
     });
 
     // then register all the expression of the source
-    source._expressions.forEach((expression) => {
+    source.expressions.forEach((expression) => {
       this.registerExpression(expression);
     });
 
@@ -125,8 +131,9 @@ export class VRMExpressionManager {
    * @param expression {@link VRMExpression} that describes the expression
    */
   public registerExpression(expression: VRMExpression): void {
-    this._expressions.push(expression);
+    this._expressions.expressions[expression.expressionName] = expression;
     this._expressionMap[expression.expressionName] = expression;
+    this._expressionList.push(expression);
   }
 
   /**
@@ -135,13 +142,13 @@ export class VRMExpressionManager {
    * @param expression The expression you want to unregister
    */
   public unregisterExpression(expression: VRMExpression): void {
-    const index = this._expressions.indexOf(expression);
-    if (index === -1) {
+    if (!this._expressions.expressions[expression.expressionName]) {
       console.warn('VRMExpressionManager: The specified expressions is not registered');
     }
 
-    this._expressions.splice(index, 1);
+    delete this._expressions.expressions[expression.expressionName];
     delete this._expressionMap[expression.expressionName];
+    this._expressionList.splice(this._expressionList.indexOf(expression), 1);
   }
 
   /**
@@ -172,7 +179,7 @@ export class VRMExpressionManager {
    * Reset weights of all expressions to `0.0`.
    */
   public resetValues(): void {
-    this._expressions.forEach((expression) => {
+    this.expressions.forEach((expression) => {
       expression.weight = 0.0;
     });
   }
@@ -205,7 +212,7 @@ export class VRMExpressionManager {
    */
   public getExpressionTrackName(name: VRMExpressionPresetName | string): string | null {
     const expression = this.getExpression(name);
-    return expression ? `${expression.name}.weight` : null;
+    return expression ? `${this._expressions.name}.expressions[${expression.expressionName}].weight` : null;
   }
 
   /**
@@ -216,13 +223,13 @@ export class VRMExpressionManager {
     const weightMultipliers = this._calculateWeightMultipliers();
 
     // reset expression binds first
-    for(let i = 0; i < this._expressions.length; i++) {
-      this._expressions[i].clearAppliedWeight();
+    for (let i = 0; i < this.expressions.length; i++) {
+      this.expressions[i].clearAppliedWeight();
     }
 
     // then apply binds
-    for(let i = 0; i < this._expressions.length; i++) {
-      const expression = this._expressions[i];
+    for (let i = 0; i < this.expressions.length; i++) {
+      const expression = this.expressions[i];
       let multiplier = 1.0;
       const name = expression.expressionName;
 
@@ -242,7 +249,7 @@ export class VRMExpressionManager {
     }
   }
 
-  private _weightMultipliers = {blink: 1.0, lookAt: 1.0, mouth: 1.0};
+  private _weightMultipliers = { blink: 1.0, lookAt: 1.0, mouth: 1.0 };
   /**
    * Calculate sum of override amounts to see how much we should multiply weights of certain expressions.
    */
@@ -251,8 +258,8 @@ export class VRMExpressionManager {
     let lookAt = 1.0;
     let mouth = 1.0;
 
-    for(let i = 0; i < this._expressions.length; i++) {
-      const expression = this._expressions[i];
+    for (let i = 0; i < this.expressions.length; i++) {
+      const expression = this.expressions[i];
       blink -= expression.overrideBlinkAmount;
       lookAt -= expression.overrideLookAtAmount;
       mouth -= expression.overrideMouthAmount;
